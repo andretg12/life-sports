@@ -26,16 +26,6 @@ if (process.env.NODE_ENV === "production") {
   uri = `mongodb+srv://root:${process.env.DB_PASS}@life-sports-sbsvp.mongodb.net/test?retryWrites=true&w=majority`;
 }
 
-// const MongoClient = require('mongodb').MongoClient;
-// const client = new MongoClient(uri, {
-//     useNewUrlParser: true
-// });
-// client.connect(err => {
-//     const collection = client.db("test").collection("devices");
-//     // perform actions on the collection object
-//     client.close();
-// });
-
 // connection to database
 mongoose.connect(uri, {
   useNewUrlParser: true,
