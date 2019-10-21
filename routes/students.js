@@ -13,11 +13,18 @@ let Student = require('../models/students.model')
 
 // getting all students
 router.get('/', async (req, res) => {
-    const students = await Student.find({}).exec()
-    res.status(200).json(students)
+    try {
+        const students = await Student.find({}).exec()
+        res.status(200).json(students)
+    } catch (err) {
+        res.status(400).send(err)
+    }
 })
+
+
 // create a new student
-router.post('/', async (req, res) => {
+// POST /students/add
+router.post('/add', async (req, res) => {
     try {
         const student = await Student.create(req.body)
         res.status(200).json(student)
@@ -25,7 +32,9 @@ router.post('/', async (req, res) => {
         res.send(err)
     }
 })
+
 // get student by id
+// GET /students/:id
 router.get('/:id', async (req, res) => {
     try {
         const student = await Student.findOne({
@@ -36,11 +45,14 @@ router.get('/:id', async (req, res) => {
         res.send(err)
     }
 });
+
+
 // students by location
+//GET students/:location
 router.get("/:location", async (req, res) => {
     try {
         const student = await Student.find({
-            academy: req.params.location
+            'academy': req.params.location
         }).exec()
         res.status(200).json(student)
     } catch (err) {
@@ -48,4 +60,28 @@ router.get("/:location", async (req, res) => {
     }
 })
 
+//Students where search matches
+//get students/:chars
+router.get("/:chars", async (req, res) => {
+    try {
+        const match = await Student.find({}).exec()
+    } catch (err) {
+        res.send(err)
+    }
+})
+
+//get active students
+//get students/active
+router.get("/active", async (req, res) => {
+    try {
+        const students = await Student.find({
+            "active": true
+        }).exec()
+        res.status(200).send(student)
+    } catch (err) {
+        res.send(err)
+    }
+})
+
+//update students
 module.exports = router

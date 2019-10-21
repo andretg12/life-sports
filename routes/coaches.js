@@ -25,7 +25,7 @@ router.get("/", async (req, res) => {
 })
 
 // 2. add a new user
-// POST /
+// POST /coaches/add
 // ========================================
 router.post('/add', (req, res) => {
     let body = req.body
@@ -33,6 +33,8 @@ router.post('/add', (req, res) => {
         .then(dbUser => res.status(200).json(dbUser))
         .catch(err => console.log(err))
 });
+
+
 
 
 

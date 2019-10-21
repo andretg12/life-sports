@@ -255,24 +255,24 @@ const studentSchema = new Schema({
         default: 0
       }
     },
-    academicStats: {
-      type: {
-        booksRead: [String],
-        gpa: {
-          type: String,
-          required: true,
-          trim: true,
-          default: "N/A"
-        },
-        readingLvl: {
-          type: String,
-          trim: true,
-          required: true,
-          default: "N/A"
-        }
+  },
+  academicStats: {
+    type: {
+      booksRead: [String],
+      gpa: {
+        type: String,
+        required: true,
+        trim: true,
+        default: "N/A"
+      },
+      readingLvl: {
+        type: String,
+        trim: true,
+        required: true,
+        default: "N/A"
       }
     }
-  },
+  }
 }, {
   timestamps: true,
 });
