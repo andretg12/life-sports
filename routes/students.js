@@ -52,9 +52,15 @@ router.get('/:id', async (req, res) => {
 // students by location
 //GET students/:location
 router.get("/", async (req, res) => {
+    const location = req.query.location
     try {
         const student = await Student.find({
-            'academy': req.query.location
+            $match: {
+                "academy": {
+                    $regex: req.query.location,
+                    $options: "i"
+                }
+            }
         }).exec()
         res.status(200).json(student)
     } catch (err) {
@@ -66,8 +72,25 @@ router.get("/", async (req, res) => {
 //get students/:chars
 router.get("/:chars", async (req, res) => {
     try {
-        const match = await Student.find({}).exec()
+        const match = await Student.find({
+            $match: {
+                $or: [{
+                    'firstName': {
+                        $regex: req.params.chars,
+                        $options: 'i'
+                    }
+                }, {
+                    'lastName': {
+                        $regex: req.params.chars,
+                        $options: 'i'
+                    }
+                }]
+            }
+        }).exec()
+        res.status(200).json(match)
+
     } catch (err) {
+        console.log(err)
         res.send(err)
     }
 })
