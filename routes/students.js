@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 // POST /students/add
 router.post('/add', async (req, res) => {
     try {
-        request.body.password = Bcrypt.hashSync(request.body.password, 12);
+        req.body.password = Bcrypt.hashSync(req.body.password, 12);
         const student = await Student.create(req.body)
         res.status(200).json(student)
     } catch (err) {
@@ -51,10 +51,10 @@ router.get('/:id', async (req, res) => {
 
 // students by location
 //GET students/:location
-router.get("/:location", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         const student = await Student.find({
-            'academy': req.params.location
+            'academy': req.query.location
         }).exec()
         res.status(200).json(student)
     } catch (err) {
@@ -73,12 +73,12 @@ router.get("/:chars", async (req, res) => {
 })
 
 //get active students
-//get students/active
-router.get("/:location/active", async (req, res) => {
+//get students/active?queryhere
+router.get("/active", async (req, res) => {
     try {
         const students = await Student.find({
             "active": true,
-            "location": req.params.location
+            "location": req.query.location
         }).exec()
         res.status(200).send(students)
     } catch (err) {
@@ -88,7 +88,7 @@ router.get("/:location/active", async (req, res) => {
 
 router.post("/login", async (req, res) => {
     try {
-        const user = await UserModel.findOne({
+        const user = await Student.findOne({
             username: req.body.username
         }).exec();
         if (!user) {
