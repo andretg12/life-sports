@@ -20,10 +20,10 @@ app.use(express.json());
 // Serve up static assets (heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-  uri = `mongodb+srv://root:${process.env.DB_PASS}@life-sports-sbsvp.mongodb.net/test?retryWrites=true&w=majority`;
+  uri = `mongodb+srv://root:${process.env.DB_PASS}@life-sports-sbsvp.mongodb.net/lifesportsDB?retryWrites=true&w=majority`;
   // connection string for Atlas here  
 } else {
-  uri = `mongodb+srv://root:${process.env.DB_PASS}@life-sports-sbsvp.mongodb.net/test?retryWrites=true&w=majority`;
+  uri = `mongodb+srv://root:${process.env.DB_PASS}@life-sports-sbsvp.mongodb.net/lifesportsDB?retryWrites=true&w=majority`;
 }
 
 // connection to database
@@ -39,10 +39,12 @@ connection.once('open', () => {
 
 // register api catalogue
 const exercisesRouter = require('./routes/exercises');
-const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/coaches');
+const studentRouter = require('./routes/students')
 
 app.use('/exercises', exercisesRouter);
 app.use('/users', usersRouter);
+app.use('/students', studentRouter);
 
 // Creating live connection to reactjs app
 // Define any API routes before this runs

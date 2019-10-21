@@ -3,7 +3,7 @@
 ////////////////////////////////////////
 
 const router = require('express').Router();
-let User = require('../models/user.model');
+let Coach = require('../models/coach.model');
 
 // Your Challenge: Make rwo routes. Each will use mongojs methods
 // to interact with your mongoDB database, as instructed below.
@@ -16,8 +16,12 @@ let User = require('../models/user.model');
 // ========================================
 
 router.get("/", async (req, res) => {
-    const user = await User.find({}).exec()
-    res.json(user)
+    try {
+        const coach = await Coach.find({}).exec()
+        res.json(coach)
+    } catch (err) {
+        res.send(err)
+    }
 })
 
 // 2. add a new user
@@ -25,9 +29,11 @@ router.get("/", async (req, res) => {
 // ========================================
 router.post('/add', (req, res) => {
     let body = req.body
-    User.create(body)
+    Coach.create(body)
         .then(dbUser => res.status(200).json(dbUser))
         .catch(err => console.log(err))
-})
+});
+
+
 
 module.exports = router;
