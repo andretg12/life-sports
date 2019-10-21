@@ -45,8 +45,7 @@ const coachSchema = new Schema({
     },
     phone: {
         type: Number,
-        required: true,
-        trim: true
+        required: true
     },
     locations: {
         type: [String],
