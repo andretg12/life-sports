@@ -1,6 +1,6 @@
 const router = require('express').Router()
 let Student = require('../models/students.model')
-
+const Bcrypt = require("bcryptjs")
 
 
 
@@ -26,9 +26,11 @@ router.get('/', async (req, res) => {
 // POST /students/add
 router.post('/add', async (req, res) => {
     try {
+        request.body.password = Bcrypt.hashSync(request.body.password, 12);
         const student = await Student.create(req.body)
         res.status(200).json(student)
     } catch (err) {
+        console.log(err)
         res.send(err)
     }
 })
@@ -72,16 +74,40 @@ router.get("/:chars", async (req, res) => {
 
 //get active students
 //get students/active
-router.get("/active", async (req, res) => {
+router.get("/:location/active", async (req, res) => {
     try {
         const students = await Student.find({
-            "active": true
+            "active": true,
+            "location": req.params.location
         }).exec()
-        res.status(200).send(student)
+        res.status(200).send(students)
     } catch (err) {
         res.send(err)
     }
 })
+
+router.post("/login", async (req, res) => {
+    try {
+        const user = await UserModel.findOne({
+            username: req.body.username
+        }).exec();
+        if (!user) {
+            return res.status(400).send({
+                message: "The username does not exist"
+            });
+        }
+        if (!Bcrypt.compareSync(req.body.password, user.password)) {
+            return res.status(400).send({
+                message: "The password is invalid"
+            });
+        }
+        res.send({
+            message: "The username and password combination is correct!"
+        });
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
 
 //update students
 module.exports = router

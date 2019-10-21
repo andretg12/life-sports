@@ -6,6 +6,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require("path")
+const Bcrypt = require("bcryptjs")
 
 const app = express();
 const port = process.env.PORT || 5000;
