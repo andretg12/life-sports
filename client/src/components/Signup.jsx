@@ -35,7 +35,7 @@ const Signup = () => {
                 <label className="visuallyhidden" htmlFor="coach-location">Location</label>
                 <input className="form-control mt-5" type="text" id="coach-location" placeholder="LOCATION"></input>
 
-                <button className="btn btn-secondary mt-5" type="submit" value="submit">SIGN UP</button>
+                <button className="btn btn-secondary mt-5 mb-5" type="submit" value="submit">SIGN UP</button>
             </form>
         </div>
     )
