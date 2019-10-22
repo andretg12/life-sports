@@ -13,7 +13,8 @@ import Attendance from "./Components/Attendance";
 import Forms from "./Components/Forms";
 import Resources from "./Components/Resources";
 import ShowStudent from "./Components/ShowStudent";
-import Signup from "./Components/Signup";
+import StudentSignup from "./Components/StudentSignup";
+import CoachSignup from "./Components/CoachSignup"
 import Login from "./Components/Login";
 import TakeAttendance from "./Components/TakeAttendance"
 
@@ -41,9 +42,10 @@ class App extends Component {
       <Route path="/user" render={(props) => <CreateUser {...props} />} />
       <Route path="/exercise" component={ExercisesList} />
       <Route path="/form" render={(props) => <Forms {...props}  />} />
-      <Route path="/Resources" render={(props) => <Resources {...props} />} />
-      <Route path="/student" render={(props) => <ShowStudent {...props} student={targetStudent} />} />
-      <Route path="/signup" render={(props) => <Signup {...props} />} />
+      <Route path="/resources" render={(props) => <Resources {...props} />} />
+      <Route path="/student/show" render={(props) => <ShowStudent {...props} student={targetStudent} />} />
+      <Route path="/student/signup" render={(props) => <StudentSignup {...props} location={location} locations={locations} academy={academy} academies={academies}/>} />
+      <Route path="/coach/signup" render={(props) => <CoachSignup {...props} location={location} locations={locations} academy={academy} academies={academies}/>} />
       <Route path="/login" render={(props) => <Login {...props} />} />
       <Route path="/takeattendance" render={(props) => <TakeAttendance {...props} />} />
       </div>

@@ -3,7 +3,7 @@ import React from 'react';
 const TakeAttendance = () => {
     return (
         <div>
-            <h1 className="text-center">Attendance</h1>
+            <h1 className="text-center">ATTENDANCE</h1>
             <div className="container">
             <p>Student Name</p>
             <form>

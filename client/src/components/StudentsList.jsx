@@ -3,7 +3,7 @@ import React from 'react'
 const StudentsList = ({ students }) => {
     return(
         <div>
-            <h1 className="text-center">Students</h1>
+            <h1 className="text-center">STUDENTS</h1>
             <div className="container">
             <form className="row">
             <label className="visuallyhidden" htmlFor="student-academy-select">Select Academy</label>
