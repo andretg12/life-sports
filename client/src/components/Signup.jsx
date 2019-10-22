@@ -2,11 +2,11 @@ import React from 'react'
 
 const Signup = () => {
     return (
-        <div className="container">
+        <div>
             <h1 className="text-center">SIGN UP</h1>
-            <form className="row mt-5">
-                <label className="visuallyhidden" htmFor="coach-fname">First Name</label>
-                <input className="form-control" type="text" id="coach-fname" placeholder="FIRST NAME"></input>
+            <form className="container mt-5">
+                <label className="visuallyhidden" htmlFor="coach-fname">First Name</label>
+                <input className="form-control mt-5" type="text" id="coach-fname" placeholder="FIRST NAME"></input>
 
                 <label className="visuallyhidden" htmlFor="coach-lname">Last Name</label>
                 <input className="form-control mt-5" type="text" id="coach-lname" placeholder="LAST NAME"></input>
