@@ -131,7 +131,7 @@ router.post("/login", async (req, res) => {
     }
 });
 
-router.post("/attendace/:id", async (req, res) => {
+router.post("/attendance/:id", async (req, res) => {
     try {
         const user = await Student.updateOne({
             _id: req.params.id
