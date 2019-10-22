@@ -10,19 +10,19 @@ const Login = () => {
 	const handlePasswordChange = e => {
 		setPassword(e.target.value);
 	};
+
+	let submitObject = {
+		username: username,
+		password: password
+	};
 	const handleSubmit = e => {
-		axios
-			.post("/students/login", {
-				username: username,
-				password: password
-			})
-			.then(console.log("success"));
+		axios.post("students/login", submitObject);
 	};
 	return (
 		<div>
 			<h1 className="text-center">Login</h1>
 			<div className="container">
-				<form className="row" onSubmit={handleSubmit}>
+				<form className="row">
 					<label className="visuallyhidden" htmlFor="username">
 						Username
 					</label>
@@ -31,7 +31,7 @@ const Login = () => {
 						type="text"
 						id="username"
 						placeholder="USERNAME"
-						onChange={handleUsernameChange}
+						onChange={() => handleUsernameChange}
 					></input>
 
 					<label className="visuallyhidden" htmlFor="password">
@@ -42,16 +42,14 @@ const Login = () => {
 						type="password"
 						id="password"
 						placeholder="PASSWORD"
-						onChange={handlePasswordChange}
+						onChange={() => handlePasswordChange}
 					></input>
 
-					<button
+					<input
 						className="btn btn-secondary mt-5 ml-5 mb-5"
-						type="submit"
 						value="LOGIN"
-					>
-						LOGIN
-					</button>
+						onClick={handleSubmit}
+					></input>
 				</form>
 			</div>
 		</div>

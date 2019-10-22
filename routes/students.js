@@ -128,11 +128,11 @@ router.post("/login", async (req, res) => {
             message: "The username and password combination is correct!"
         });
     } catch (error) {
-        res.status(500).send(error);
+        console.log(error)
     }
 });
 
-router.post("/attendace/:id", async (req, res) => {
+router.post("/attendance/:id", async (req, res) => {
     try {
         const user = await Student.updateOne({
             _id: req.params.id
