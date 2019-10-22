@@ -1,17 +1,11 @@
-import React from 'react'
+import React from "react";
 
-<<<<<<< HEAD
-const StudentsList = ({ students }) => {
-    return (
-=======
 const StudentsList = ({ students, academies, academy, location, locations }) => {
     console.log(students)
     return(
->>>>>>> fd88865132ba41a34fca03947c1a2bdc43c62936
         <div>
             <h1 className="text-center">STUDENTS</h1>
             <div className="container">
-<<<<<<< HEAD
                 <form className="row">
                     <label className="visuallyhidden" htmlFor="student-academy-select">Select Academy</label>
                     <select className="form-control col-sm-6 col-md-3" id="student-academy-select"></select>
@@ -26,7 +20,6 @@ const StudentsList = ({ students, academies, academy, location, locations }) => 
                     <p key={student}>{student}</p>
                 ))}
             </div>
-=======
             <form className="row">
             <label className="visuallyhidden" htmlFor="student-academy-select">Select Academy</label>
             <select className="form-control col-sm-6 col-md-3" name="academy" id="student-academy-select">
@@ -53,7 +46,6 @@ const StudentsList = ({ students, academies, academy, location, locations }) => 
                 <p key={student}>{student.firstname}</p>
             ))}
         </div>
->>>>>>> fd88865132ba41a34fca03947c1a2bdc43c62936
         </div>
     )
 }
