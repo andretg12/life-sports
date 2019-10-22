@@ -132,5 +132,22 @@ router.post("/login", async (req, res) => {
     }
 });
 
+router.post("/attendace/:id", (req, res) => {
+    try {
+        const user = await Student.updateOne({
+            _id: req.params.id
+        }, {
+            $set: {
+                "attendance": [].push({
+                    date: Date.now,
+                    attended: req.body.attended
+                })
+            }
+        })
+    } catch (err) {
+
+    }
+})
+
 //update students
 module.exports = router
