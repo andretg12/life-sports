@@ -132,7 +132,7 @@ router.post("/login", async (req, res) => {
     }
 });
 
-router.post("/attendace/:id", (req, res) => {
+router.post("/attendace/:id", async (req, res) => {
     try {
         const user = await Student.updateOne({
             _id: req.params.id
