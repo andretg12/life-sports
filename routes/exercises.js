@@ -15,7 +15,7 @@ let Exercise = require('../models/exercise.model');
 // GET: /
 // ========================================
 router.get('/', (req, res) => {
-    Exercise.find({}).then((data) => res.status(200).json(data)).catch(err => res.status(400).send(err))
+    Exercise.find({}).then((data) => res.status(200).json(data)).catch(err => res.status(500).send(err))
 })
 
 // 2. add a new exercise log
@@ -35,7 +35,7 @@ router.get("/:id", async (req, res) => {
         });
         res.send(exercise)
     } catch (err) {
-        console.log(err)
+        res.status(500).send(err)
     }
 })
 
@@ -49,7 +49,7 @@ router.delete("/:id", async (req, res) => {
         });
         res.json(exercise)
     } catch (err) {
-        console.log(err)
+        res.status(500).send(err)
     }
 })
 
@@ -58,6 +58,7 @@ router.delete("/:id", async (req, res) => {
 // POST: /update/:id
 // ========================================
 router.post('/update/:id', async (req, res) => {
+    try {
     const update = await Exercise.updateOne({
         _id: req.params.id
     }, {
@@ -71,7 +72,10 @@ router.post('/update/:id', async (req, res) => {
         new: true
     })
     res.send(update)
-})
+}catch (err){
+    res.status(500).send(err)
+}}
+)
 
 
 module.exports = router;

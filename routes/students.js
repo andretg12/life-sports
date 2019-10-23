@@ -14,10 +14,10 @@ const Bcrypt = require("bcryptjs")
 // getting all students
 router.get('/', async (req, res) => {
     try {
-        const students = await Student.find({}).exec()
-        res.status(200).json(students)
+        const students = await Student.find({})
+        res.status(200).send(students)
     } catch (err) {
-        res.status(400).send(err)
+        res.status(500).send(err)
     }
 })
 
@@ -31,7 +31,7 @@ router.post('/add', async (req, res) => {
         res.status(200).json(student)
     } catch (err) {
         console.log(err)
-        res.send(err)
+        res.status(500).send(err)
     }
 })
 
@@ -44,7 +44,7 @@ router.get('/:id', async (req, res) => {
         })
         res.status(200).json(student)
     } catch (err) {
-        res.send(err)
+        res.status(500).send(err)
     }
 });
 
@@ -64,7 +64,7 @@ router.get("/", async (req, res) => {
         }).exec()
         res.status(200).json(student)
     } catch (err) {
-        res.send(err)
+        resstatus(500).send(err)
     }
 })
 
@@ -90,8 +90,7 @@ router.get("/:chars", async (req, res) => {
         res.status(200).json(match)
 
     } catch (err) {
-        console.log(err)
-        res.send(err)
+        res.status(500).send(err)
     }
 })
 
@@ -105,7 +104,7 @@ router.get("/active", async (req, res) => {
         }).exec()
         res.status(200).send(students)
     } catch (err) {
-        res.send(err)
+        res.status(500).send(err)
     }
 })
 
@@ -127,10 +126,27 @@ router.post("/login", async (req, res) => {
         res.send({
             message: "The username and password combination is correct!"
         });
-    } catch (error) {
-        res.status(500).send(error);
+    } catch (err) {
+        res.status(500).send(err);
     }
 });
+
+router.post("/attendace/:id", async (req, res) => {
+    try {
+        const user = await Student.updateOne({
+            _id: req.params.id
+        }, {
+            $set: {
+                "attendance": [].push({
+                    date: Date.now,
+                    attended: req.body.attended
+                })
+            }
+        })
+    } catch (err) {
+        res.status(500).send(err)
+    }
+})
 
 //update students
 module.exports = router
