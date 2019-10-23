@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css"
 import { BrowserRouter as Router, Route} from "react-router-dom";
@@ -26,8 +27,23 @@ class App extends Component {
     locations: [],
     location: "",//Load students and resources for location
     userType: "",//Coach or student for different user experience
-    students: ["Sam", "James", "Terrence", "Quincy", "Jane", "Sally", "Joe"],//list of students at location
+    students: [],//list of students at location
     targetStudent: "James"
+  }
+
+  componentDidMount() {
+    axios.get('/students/')
+      .then(response => {
+        this.setState({ students: response.data })
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+
+    axios.get('/coaches/')
+    .then(response => {
+      this.setState({coaches: response.data})
+    })
   }
 
   render() {
@@ -35,7 +51,7 @@ class App extends Component {
   return (
     <Router>
       <div className="">
-      <Route path="/" exact render={(props) => <StudentList {...props} students={students} />} />
+      <Route path="/" exact render={(props) => <StudentList {...props} students={students} location={location} academy={academy} locations={locations} academies={academies} />} />
       <Route path="/edit/:id" render={(props) => <EditExercise {...props} onChangeStudent={this.onChangeStudent} onChangeDescription={this.onChangeDescription} onChangeDuration={this.onChangeDuration} onChangeDate={this.onChangeDate} onSubmit={this.onSubmitExercise}/>} />
       <Route path="/create" render={(props) => <CreateExercise {...props} />} />
       <Route path="/attendance" render={(props) => <Attendance {...props} students={students} />} />

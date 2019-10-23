@@ -13,7 +13,7 @@ const Login = () => {
                 <input className="form-control mt-5 ml-5 mr-5" type="password" name="password" id="password" placeholder="PASSWORD"></input>
 
 
-                <button className="btn btn-secondary mt-5 ml-5 mb-5" type="submit" value="LOGIN">LOGIN</button>
+                <submit className="btn btn-secondary mt-5 ml-5 mb-5" type="submit" value="LOGIN">LOGIN</submit>
             </form>
         </div>
         </div>
