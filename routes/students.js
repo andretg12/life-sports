@@ -123,17 +123,11 @@ router.post("/login", async (req, res) => {
                 message: "The password is invalid"
             });
         }
-<<<<<<< HEAD
         res.send({
             message: "The username and password combination is correct!"
         });
     } catch (err) {
         res.status(500).send(err);
-=======
-        res.status(200).send("Success")
-    } catch (error) {
-        console.log(error)
->>>>>>> 1d14c2dcfdfb4d88c788a7527efb0226d73b92b2
     }
 });
 // To implement this one you would need to get the id and send a json object with the attended key value pair
