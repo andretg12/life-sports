@@ -9,7 +9,11 @@ const Exercise = props => (
 		<td>{props.exercise.duration}</td>
 		<td>{props.exercise.date.substring(0, 10)}</td>
 		<td>
+<<<<<<< HEAD
 			<Link to={"/edit/" + props.exercise._id}>edit</Link>
+=======
+			<Link to={"/edit/" + props.exercise._id}>edit</Link> |{" "}
+>>>>>>> 1d14c2dcfdfb4d88c788a7527efb0226d73b92b2
 			<a
 				href="#"
 				onClick={() => {
