@@ -58,9 +58,23 @@ class App extends Component {
 				console.log(error);
 			});
 
-		axios.get("/coaches/").then(response => {
-			this.setState({ coaches: response.data });
-		});
+		axios
+			.get("/coaches/")
+			.then(response => {
+				this.setState({ coaches: response.data });
+			})
+			.catch(error => {
+				console.log(error);
+			});
+
+		axios
+			.get("/academies/")
+			.then(response => {
+				this.setState({ academies: response.data });
+			})
+			.catch(error => {
+				console.log(error);
+			});
 	}
 
 	render() {
