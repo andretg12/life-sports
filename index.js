@@ -6,8 +6,12 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require("path")
+const Bcrypt = require("bcryptjs")
+const morgan = require('morgan')
+
 
 const app = express();
+app.use(morgan('combined'))
 const port = process.env.PORT || 5000;
 let uri = `mongodb+srv://root:${process.env.DB_PASS}@life-sports-sbsvp.mongodb.net/test?retryWrites=true&w=majority`;
 
@@ -20,21 +24,11 @@ app.use(express.json());
 // Serve up static assets (heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-  uri = `mongodb+srv://root:${process.env.DB_PASS}@life-sports-sbsvp.mongodb.net/test?retryWrites=true&w=majority`;
+  uri = `mongodb+srv://root:${process.env.DB_PASS}@life-sports-sbsvp.mongodb.net/lifesportsDB?retryWrites=true&w=majority`;
   // connection string for Atlas here  
 } else {
-  uri = `mongodb+srv://root:${process.env.DB_PASS}@life-sports-sbsvp.mongodb.net/test?retryWrites=true&w=majority`;
+  uri = `mongodb+srv://root:${process.env.DB_PASS}@life-sports-sbsvp.mongodb.net/lifesportsDB?retryWrites=true&w=majority`;
 }
-
-// const MongoClient = require('mongodb').MongoClient;
-// const client = new MongoClient(uri, {
-//     useNewUrlParser: true
-// });
-// client.connect(err => {
-//     const collection = client.db("test").collection("devices");
-//     // perform actions on the collection object
-//     client.close();
-// });
 
 // connection to database
 mongoose.connect(uri, {
@@ -49,10 +43,12 @@ connection.once('open', () => {
 
 // register api catalogue
 const exercisesRouter = require('./routes/exercises');
-const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/coaches');
+const studentRouter = require('./routes/students')
 
 app.use('/exercises', exercisesRouter);
 app.use('/users', usersRouter);
+app.use('/students', studentRouter);
 
 // Creating live connection to reactjs app
 // Define any API routes before this runs
