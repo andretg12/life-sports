@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Login = () => {
+const Login = ({ history }) => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const handleUsernameChange = e => {
