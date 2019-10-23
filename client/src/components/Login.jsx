@@ -17,7 +17,7 @@ const Login = ({ history }) => {
 		password: password
 	};
 	const handleSubmit = e => {
-		axios.post("students/login", submitObject);
+		axios.post("students/login", submitObject).then(window.location.pathname("/student"));
 	};
 	return (
 		<div>
