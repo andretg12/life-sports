@@ -108,7 +108,7 @@ router.get("/active", async (req, res) => {
         res.send(err)
     }
 })
-
+//Login 
 router.post("/login", async (req, res) => {
     try {
         const user = await Student.findOne({
@@ -124,14 +124,12 @@ router.post("/login", async (req, res) => {
                 message: "The password is invalid"
             });
         }
-        res.send({
-            message: "The username and password combination is correct!"
-        });
+        res.status(200).send("Success")
     } catch (error) {
         console.log(error)
     }
 });
-
+// To implement this one you would need to get the id and send a json object with the attended key value pair
 router.post("/attendance/:id", async (req, res) => {
     try {
         const user = await Student.updateOne({
