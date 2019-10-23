@@ -34,6 +34,11 @@ router.post('/add', (req, res) => {
         .catch(err => console.log(err))
 });
 
+router.post("/update", (req, res) => {
+    let body = req.body
+
+})
+
 
 
 
