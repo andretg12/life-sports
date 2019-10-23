@@ -41,7 +41,11 @@ router.post('/add', async (req, res) => {
 
 router.post("/update", (req, res) => {
     let body = req.body
+    try {
 
+    } catch (err) {
+
+    }
 })
 
 
