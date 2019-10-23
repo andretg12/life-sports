@@ -1,27 +1,51 @@
 import React from "react";
-import { Link } from "../../node_modules/react-router-dom";
+import { Link } from "react-router-dom";
 
 function Navbar() {
 	return (
-		<nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-			<Link to="/" className="navbar-brand">
-				LifeSports
-			</Link>
-			<div className="collpase navbar-collapse">
+		<nav
+			className="navbar navbar-light navbar-expand-lg"
+			style={{ backgroundColor: "#FBCA1E" }}
+		>
+			<button
+				className="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span className="navbar-toggler-icon"></span>
+			</button>
+			<div className="collapse navbar-collapse" id="navbarSupportedContent">
+				<Link to="/" className="navbar-brand">
+					LIFESPORTS
+				</Link>
 				<ul className="navbar-nav mr-auto">
 					<li className="navbar-item">
 						<Link to="/" className="nav-link">
-							Exercises
+							STUDENTS
 						</Link>
 					</li>
 					<li className="navbar-item">
-						<Link to="/create" className="nav-link">
-							Post New Workout
+						<Link to="/resources" className="nav-link">
+							RESOURCES
 						</Link>
 					</li>
 					<li className="navbar-item">
-						<Link to="/user" className="nav-link">
-							Create User
+						<Link to="/student/signup" className="nav-link">
+							ADD STUDENT
+						</Link>
+					</li>
+					<li className="navbar-item">
+						<Link to="/coach/signup" className="nav-link">
+							ADD COACH
+						</Link>
+					</li>
+					<li>
+						<Link to="/exercise" className="nav-link">
+							EXERCISES
 						</Link>
 					</li>
 				</ul>

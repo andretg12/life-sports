@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../../node_modules/axios";
 
 const Login = ({ history }) => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const handleUsernameChange = e => {
+		console.log(history);
 		setUsername(e.target.value);
 	};
 	const handlePasswordChange = e => {
@@ -16,7 +17,7 @@ const Login = ({ history }) => {
 		password: password
 	};
 	const handleSubmit = e => {
-		axios.post("students/login", submitObject);
+		axios.post("students/login", submitObject).then(window.location.pathname("/student"));
 	};
 	return (
 		<div>

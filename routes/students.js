@@ -14,10 +14,10 @@ const Bcrypt = require("bcryptjs")
 // getting all students
 router.get('/', async (req, res) => {
     try {
-        const students = await Student.find({}).exec()
-        res.status(200).json(students)
+        const students = await Student.find({})
+        res.status(200).send(students)
     } catch (err) {
-        res.status(400).send(err)
+        res.status(500).send(err)
     }
 })
 
@@ -31,7 +31,7 @@ router.post('/add', async (req, res) => {
         res.status(200).json(student)
     } catch (err) {
         console.log(err)
-        res.send(err)
+        res.status(500).send(err)
     }
 })
 
@@ -44,7 +44,7 @@ router.get('/:id', async (req, res) => {
         })
         res.status(200).json(student)
     } catch (err) {
-        res.send(err)
+        res.status(500).send(err)
     }
 });
 
@@ -64,7 +64,7 @@ router.get("/", async (req, res) => {
         }).exec()
         res.status(200).json(student)
     } catch (err) {
-        res.send(err)
+        resstatus(500).send(err)
     }
 })
 
@@ -90,8 +90,7 @@ router.get("/:chars", async (req, res) => {
         res.status(200).json(match)
 
     } catch (err) {
-        console.log(err)
-        res.send(err)
+        res.status(500).send(err)
     }
 })
 
@@ -105,7 +104,7 @@ router.get("/active", async (req, res) => {
         }).exec()
         res.status(200).send(students)
     } catch (err) {
-        res.send(err)
+        res.status(500).send(err)
     }
 })
 //Login 
@@ -124,9 +123,12 @@ router.post("/login", async (req, res) => {
                 message: "The password is invalid"
             });
         }
-        res.status(200).send("Success")
-    } catch (error) {
-        console.log(error)
+        res.send({
+            academy: user.academy,
+            _id: user._id,
+        });
+    } catch (err) {
+        res.status(500).send(err);
     }
 });
 // To implement this one you would need to get the id and send a json object with the attended key value pair
@@ -135,14 +137,21 @@ router.post("/attendance/:id", async (req, res) => {
         const user = await Student.updateOne({
             _id: req.params.id
         }, {
-            $set: {
-                "attendance": [].push({
+            $push: {
+                "attendance": [{
                     date: Date.now,
                     attended: req.body.attended
-                })
+                }]
             }
         })
     } catch (err) {
+        res.status(500).send(err)
+    }
+})
+
+router.post('/update/:id', (req, res) => {
+    const keys = Object.keys(req.body)
+    for (i = 0; i <= keys.length; i++) {
 
     }
 })

@@ -6,9 +6,9 @@ h1,h2,h3,h4,h5,h6{
 }
 h1{
   width: 100%;
-  height: 20vh;
+  height: 15vh;
   background-color: #FBCA1E;
-  font-size: 3rem;
+  font-size: 2.5rem;
   padding-top: 4vh;
 }
 .visuallyhidden {
@@ -22,3 +22,13 @@ h1{
   width: 1px;
 }
 
+img{
+  width:100px;
+  height: 100px;
+}
+
+.lifesports-nav {
+  background-color: #FBCA1E;
+  color: black;
+  font-family: 'Rubik', sans-serif;
+}

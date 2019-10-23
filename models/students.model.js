@@ -15,6 +15,9 @@ const studentSchema = new Schema({
     required: true,
     default: false
   },
+  attendace: {
+    type: [String]
+  },
   password: {
     type: String,
     required: true,

@@ -1,9 +1,9 @@
-import React from "react";
+import React from "../../node_modules/react";
 
 const Forms = () => {
 	return (
 		<div>
-			<h1 className="text-center">Forms</h1>
+			<h1 className="text-center">FORMS</h1>
 		</div>
 	);
 };
