@@ -5,14 +5,14 @@ const TakeAttendance = () => {
         <div>
             <h1 className="text-center">Attendance</h1>
             <div className="container">
-            <p>Student Name</p>
-            <form>
-                <label className="visuallyhidden">Date</label>
-                <input className="form-control" type="date"></input>
-                <button className="btn btn-secondary" type="submit" value="submit">SAVE</button>
-            </form>
-            
-        </div>
+                <p>Student Name</p>
+                <form>
+                    <label className="visuallyhidden">Date</label>
+                    <input className="form-control" type="date"></input>
+                    <button className="btn btn-secondary" type="submit" value="submit">SAVE</button>
+                </form>
+
+            </div>
         </div>
     )
 }

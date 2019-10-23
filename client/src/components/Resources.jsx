@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Resources = () => {
-    return(
+    return (
         <div>
             <h1 className="text-center">Resources</h1>
             <h2>Academic</h2>
