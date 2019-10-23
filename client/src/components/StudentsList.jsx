@@ -9,13 +9,13 @@ const StudentsList = ({ students, academies, academy, location, locations }) => 
             <form className="row">
             <label className="visuallyhidden" htmlFor="student-academy-select">Select Academy</label>
             <select className="form-control col-sm-6 col-md-3" name="academy" id="student-academy-select">
-                <option>{academy}</option>
+                <option selected>{academy}</option>
                 {academies.map((academy, i) => <option key={i}>{academy}</option>)}
             </select>
 
             <label className="visuallyhidden" htmlFor="student-location-select">Select Location</label>
             <select className="form-control col-sm-6 col-md-3" name="location" id="student-location-select">
-                <option>{location}</option>
+                <option selected>{location}</option>
                 {locations.map((location, i) => <option key={i}>{location}</option>)}
             </select>
 
@@ -28,9 +28,14 @@ const StudentsList = ({ students, academies, academy, location, locations }) => 
             <label className="visuallyhidden" htmlFor="student-name-search">Search by Name</label>
             <input className="form-control col-sm-6 col-md-3" type="text" id="student-name-search"></input>
             </form>
-            {students.map(student => (
-                <p key={student}>{student.firstname}</p>
-            ))}
+            {students.map((student, i) => (
+                <div key={i}>
+                <p>{student.firstName}</p>
+                <p>{student.lastName}</p>
+                <p>{student.academy} {student.location}</p>
+                </div>
+            ))
+            }
         </div>
         </div>
     )

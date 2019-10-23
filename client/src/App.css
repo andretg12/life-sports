@@ -22,3 +22,13 @@ h1{
   width: 1px;
 }
 
+img{
+  width:100px;
+  height: 100px;
+}
+
+.lifesports-nav {
+  background-color: #FBCA1E;
+  color: black;
+  font-family: 'Rubik', sans-serif;
+}

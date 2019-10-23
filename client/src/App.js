@@ -18,6 +18,7 @@ import StudentSignup from "./Components/StudentSignup";
 import CoachSignup from "./Components/CoachSignup"
 import Login from "./Components/Login";
 import TakeAttendance from "./Components/TakeAttendance"
+import AddResource from "./Components/AddResources"
 
 
 class App extends Component {
@@ -28,7 +29,7 @@ class App extends Component {
     location: "",//Load students and resources for location
     userType: "",//Coach or student for different user experience
     students: [],//list of students at location
-    targetStudent: "James"
+    targetStudent: {firstName: "James", lastName: "Bond", school: "Spy academy", academy: "LifeHoops", location: "Harris YMCA", picture: "https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg", grade: "6th Grade", schoolId: "34203k30s", street: "123 This St.", city: "Charlotte", state: "NC", zipcode: "23049", parentName: "Jane Bond", parentEmail: "this@this.com", parentPhone: "3423423543", academicStats: {gpa: "3.0", readingLvl: "10th grade"}}
   }
 
   componentDidMount() {
@@ -50,6 +51,7 @@ class App extends Component {
     const { academies, academy, locations, location, students, targetStudent } = this.state
   return (
     <Router>
+      <Navbar />
       <div className="">
       <Route path="/" exact render={(props) => <StudentList {...props} students={students} location={location} academy={academy} locations={locations} academies={academies} />} />
       <Route path="/edit/:id" render={(props) => <EditExercise {...props} onChangeStudent={this.onChangeStudent} onChangeDescription={this.onChangeDescription} onChangeDuration={this.onChangeDuration} onChangeDate={this.onChangeDate} onSubmit={this.onSubmitExercise}/>} />
@@ -64,6 +66,7 @@ class App extends Component {
       <Route path="/coach/signup" render={(props) => <CoachSignup {...props} location={location} locations={locations} academy={academy} academies={academies}/>} />
       <Route path="/login" render={(props) => <Login {...props} />} />
       <Route path="/takeattendance" render={(props) => <TakeAttendance {...props} />} />
+      <Route path="/addresource" render={(props) => <AddResource {...props} />} />
       </div>
     </Router>
   )
