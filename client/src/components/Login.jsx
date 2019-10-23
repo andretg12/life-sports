@@ -17,7 +17,12 @@ const Login = ({ history }) => {
 		password: password
 	};
 	const handleSubmit = e => {
-		axios.post("students/login", submitObject).then(window.location.pathname("/student"));
+		axios.post("students/login", submitObject).then(data => {
+			if (data.studentID) {
+				window.location.pathname.replace(`/student/${data._id}`);
+			}
+			if(data.)
+		});
 	};
 	return (
 		<div>
