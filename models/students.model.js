@@ -98,7 +98,7 @@ const studentSchema = new Schema({
       position: {
         type: String,
         required: true,
-        defalut: "N/A",
+        default: "N/A",
         trim: true,
       },
       minutesPlayed: {
