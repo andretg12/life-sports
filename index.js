@@ -7,8 +7,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require("path")
 const Bcrypt = require("bcryptjs")
+const morgan = require('morgan')
+
 
 const app = express();
+app.use(morgan('combined'))
 const port = process.env.PORT || 5000;
 let uri = `mongodb+srv://root:${process.env.DB_PASS}@life-sports-sbsvp.mongodb.net/test?retryWrites=true&w=majority`;
 

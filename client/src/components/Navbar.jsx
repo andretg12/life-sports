@@ -1,6 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "../../node_modules/react";
+import { Link } from "../../node_modules/react-router-dom";
 
+<<<<<<< HEAD
 function Navbar(){ 
     return (
       <nav className="navbar navbar-light navbar-expand-lg" style={{backgroundColor: "#FBCA1E"}}>
@@ -81,5 +82,34 @@ function Navbar(){
 //   );
 // };
     );  
+=======
+function Navbar() {
+	return (
+		<nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+			<Link to="/" className="navbar-brand">
+				LifeSports
+			</Link>
+			<div className="collpase navbar-collapse">
+				<ul className="navbar-nav mr-auto">
+					<li className="navbar-item">
+						<Link to="/" className="nav-link">
+							Exercises
+						</Link>
+					</li>
+					<li className="navbar-item">
+						<Link to="/create" className="nav-link">
+							Post New Workout
+						</Link>
+					</li>
+					<li className="navbar-item">
+						<Link to="/user" className="nav-link">
+							Create User
+						</Link>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	);
+>>>>>>> c0d1e4b069a06438371d2eaab8ecf096eef669af
 }
-export default Navbar
+export default Navbar;

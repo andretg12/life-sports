@@ -27,12 +27,22 @@ router.get("/", async (req, res) => {
 // 2. add a new user
 // POST /coaches/add
 // ========================================
-router.post('/add', (req, res) => {
+router.post('/add', async (req, res) => {
+    try {
+        req.body.password = Bcrypt.hashSync(req.body.password, 12);
+        const coach = await Coach.create(req.body)
+        res.status(200).json(coach)
+    } catch (err) {
+        console.log(err)
+        res.status(500).send(err)
+    }
+})
+
+
+router.post("/update", (req, res) => {
     let body = req.body
-    Coach.create(body)
-        .then(dbUser => res.status(200).json(dbUser))
-        .catch(err => console.log(err))
-});
+
+})
 
 
 

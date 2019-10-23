@@ -107,7 +107,7 @@ router.get("/active", async (req, res) => {
         res.status(500).send(err)
     }
 })
-
+//Login 
 router.post("/login", async (req, res) => {
     try {
         const user = await Student.findOne({
@@ -130,8 +130,8 @@ router.post("/login", async (req, res) => {
         res.status(500).send(err);
     }
 });
-
-router.post("/attendace/:id", async (req, res) => {
+// To implement this one you would need to get the id and send a json object with the attended key value pair
+router.post("/attendance/:id", async (req, res) => {
     try {
         const user = await Student.updateOne({
             _id: req.params.id

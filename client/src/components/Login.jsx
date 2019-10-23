@@ -1,23 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import axios from "../../node_modules/axios";
 
-const Login = () => {
-    return (
-        <div>
-        <h1 className="text-center">LOGIN</h1>
-        <div className="container">
-            <form className="row">
-                <label className="visuallyhidden" htmlFor="username">Username</label>
-                <input className="form-control mt-5 ml-5 mr-5" type="text" name="username" id="username" placeholder="USERNAME"></input>
+const Login = ({ history }) => {
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+	const handleUsernameChange = e => {
+		console.log(history);
+		setUsername(e.target.value);
+	};
+	const handlePasswordChange = e => {
+		setPassword(e.target.value);
+	};
 
-                <label className="visuallyhidden" htmlFor="password">Password</label>
-                <input className="form-control mt-5 ml-5 mr-5" type="password" name="password" id="password" placeholder="PASSWORD"></input>
+	let submitObject = {
+		username: username,
+		password: password
+	};
+	const handleSubmit = e => {
+		axios.post("students/login", submitObject);
+	};
+	return (
+		<div>
+			<h1 className="text-center">Login</h1>
+			<div className="container">
+				<form className="row">
+					<label className="visuallyhidden" htmlFor="username">
+						Username
+					</label>
+					<input
+						className="form-control mt-5 ml-5 mr-5"
+						type="text"
+						id="username"
+						placeholder="USERNAME"
+						onChange={() => handleUsernameChange}
+					></input>
 
+					<label className="visuallyhidden" htmlFor="password">
+						Password
+					</label>
+					<input
+						className="form-control mt-5 ml-5 mr-5"
+						type="password"
+						id="password"
+						placeholder="PASSWORD"
+						onChange={() => handlePasswordChange}
+					></input>
 
-                <submit className="btn btn-secondary mt-5 ml-5 mb-5" type="submit" value="LOGIN">LOGIN</submit>
-            </form>
-        </div>
-        </div>
-    )
-}
+					<input
+						className="btn btn-secondary mt-5 ml-5 mb-5"
+						value="LOGIN"
+						onClick={handleSubmit}
+					></input>
+				</form>
+			</div>
+		</div>
+	);
+};
 
 export default Login;
