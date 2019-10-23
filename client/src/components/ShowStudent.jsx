@@ -1,7 +1,6 @@
 import React from "react";
 
 const ShowStudent = ({ student }) => {
-<<<<<<< HEAD
     return(
         <div>
             <h1 className="text-center">{student.firstName.toUpperCase()} {student.lastName.toUpperCase()}</h1>
@@ -21,13 +20,5 @@ const ShowStudent = ({ student }) => {
         </div>
     )
 }
-=======
-	return (
-		<div>
-			<h1 className="text-center">{student.toUpperCase()}</h1>
-		</div>
-	);
-};
->>>>>>> c0d1e4b069a06438371d2eaab8ecf096eef669af
 
 export default ShowStudent;

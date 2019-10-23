@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import ReactPlayer from 'react-player'
 
@@ -41,18 +40,5 @@ const Resources = () => {
         </div>
     )
 }
-=======
-import React from "react";
-
-const Resources = () => {
-	return (
-		<div>
-			<h1 className="text-center">RESOURCES</h1>
-			<h2>Academic</h2>
-			<h2>Sports</h2>
-		</div>
-	);
-};
->>>>>>> c0d1e4b069a06438371d2eaab8ecf096eef669af
 
 export default Resources;
