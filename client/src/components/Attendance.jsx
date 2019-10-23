@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Attendance = ({students}) => {
+const Attendance = ({ students }) => {
     return (
         <div>
             <h1 className="text-center">ATTENDANCE</h1>

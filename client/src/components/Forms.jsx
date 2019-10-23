@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Forms = () => {
-    return(
+    return (
         <div>
             <h1 className="text-center">FORMS</h1>
         </div>
