@@ -68,7 +68,6 @@ class App extends Component {
 				console.log(error);
 			});
 
-<<<<<<< HEAD
 		axios.get("/coaches/").then(response => {
 			this.setState({ coaches: response.data });
     })
