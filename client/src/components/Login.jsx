@@ -3,7 +3,7 @@ import axios from "axios";
 
 
   
-const Login = ({ username }) => {
+const Login = (props) => {
   const [username, setUsername] = useState("")
 	const [password, setPassword] = useState("");
 	
@@ -44,7 +44,7 @@ const Login = ({ username }) => {
 						type="text"
 						id="username"
 						placeholder="USERNAME"
-            			onChange={(e)=> handleUsernameChange}
+            			onChange={(e)=> handleUsernameChange(e)}
 					></input>
 
 					<label className="visuallyhidden" htmlFor="password">
