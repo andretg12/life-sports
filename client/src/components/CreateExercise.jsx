@@ -76,8 +76,8 @@ export default class CreateExercise extends Component {
 	render() {
 		return (
 			<div>
-				<h1 className="text-center">New Exercise</h1>
-				<form onSubmit={this.onSubmit}>
+				<h1 className="text-center">NEW EXERCISE</h1>
+				<form className="container mt-5" onSubmit={this.onSubmit}>
 					<div className="form-group">
 						<label>Username: </label>
 						<select

@@ -143,7 +143,7 @@ class App extends Component {
 						)}
 					/>
 					<Route
-						path="/create"
+						path="/addexercise"
 						render={props => <CreateExercise {...props} />}
 					/>
 					<Route
@@ -194,7 +194,15 @@ class App extends Component {
 					/>
 					<Route
 						path="/addresource"
-						render={props => <AddResource {...props} />}
+						render={props => (
+							<AddResource
+								{...props}
+								location={location}
+								academy={academy}
+								academies={academies}
+								locations={locations}
+							/>
+						)}
 					/>
 				</div>
 			</Router>
