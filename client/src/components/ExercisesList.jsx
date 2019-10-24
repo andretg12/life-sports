@@ -53,7 +53,7 @@ export default class ExercisesList extends Component {
 	}
 
 	exerciseList() {
-		return this.state.exercises.map(currentexercise => {
+		return (this.state.exercises.length > 0 this.state.exercises.map(currentexercise => {
 			return (
 				<Exercise
 					exercise={currentexercise}
@@ -61,7 +61,7 @@ export default class ExercisesList extends Component {
 					key={currentexercise._id}
 				/>
 			);
-		});
+		}): <p>No exercises Found</p>);
 	}
 
 	render() {
