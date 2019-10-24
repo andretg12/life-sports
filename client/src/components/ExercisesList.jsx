@@ -1,6 +1,6 @@
 import React, { Component } from "../../node_modules/react";
 import { Link } from "../../node_modules/react-router-dom";
-import axios from "axios";
+import axios from "../../node_modules/axios";
 
 const Exercise = (props) => (
 <div className="exercise-box">
@@ -33,7 +33,7 @@ export default class ExercisesList extends Component {
 
 	componentDidMount() {
 		axios
-			.get("/exercises/")
+			.get("/api/exercises")
 			.then(response => {
 				this.setState({ exercises: response.data });
 			})
@@ -43,7 +43,7 @@ export default class ExercisesList extends Component {
 	}
 
 	deleteExercise(id) {
-		axios.delete("/exercises/" + id).then(response => {
+		axios.delete("/api/exercises/" + id).then(response => {
 			console.log(response.data);
 		});
 
@@ -52,26 +52,24 @@ export default class ExercisesList extends Component {
 		});
 	}
 
-	exerciseList() {
-		return this.state.exercises.map(currentexercise => {
-			return (
-				<Exercise
-					exercise={currentexercise}
-					deleteExercise={this.deleteExercise}
-					key={currentexercise._id}
-				/>
-			);
-		});
-	}
 
 	render() {
 		return (
-			<div>
+				<div>
 				<h1 className="text-center">EXERCISES</h1>
 				<div className="container">
-					<div className="row">{this.exerciseList()}</div>
+					<div className="row">{this.state.exercises.length > 0 ? this.state.exercises.map(currentexercise => {
+						return (
+							<Exercise
+								exercise={currentexercise}
+								deleteExercise={this.deleteExercise}
+								key={currentexercise._id}
+							/>
+			);
+					}) : <p>No exercises created</p>}
+					</div>
 				</div>
-				<Link to="/addexercise" className="btn nav-link lifesports">ADD EXERCISE</Link>
+				{<Link to="/addexercise" className="btn nav-link lifesports">ADD EXERCISE</Link>}
 			</div>
 		);
 	}

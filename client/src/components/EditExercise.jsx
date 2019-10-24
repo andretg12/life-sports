@@ -1,7 +1,7 @@
-import React, { Component } from "../../node_modules/react";
+import React, { Component } from "react";
 import axios from "axios";
-import DatePicker from "../../node_modules/react-datepicker/lib";
-import "../../node_modules/react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker/lib";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default class EditExercise extends Component {
 	constructor(props) {
@@ -132,7 +132,8 @@ export default class EditExercise extends Component {
 								onChange={this.onChangeDate}
 							/>
 						</div>
-					</div>
+						<submit className="btn btn-secondary">SAVE</submit>
+						</div>
 				</form>
 			</div>
 		);
