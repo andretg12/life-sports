@@ -20,7 +20,6 @@ import TakeAttendance from "./Components/TakeAttendance";
 import AddResource from "./Components/AddResources";
 
 class App extends Component {
-<<<<<<< HEAD
   state = {
     academies: [],
     academy: "",
@@ -31,7 +30,6 @@ class App extends Component {
     students: [],//list of students at location
     targetStudent: {firstName: "James", lastName: "Bond", school: "Spy academy", academy: "LifeHoops", location: "Harris YMCA", picture: "https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg", grade: "6th Grade", schoolId: "34203k30s", street: "123 This St.", city: "Charlotte", state: "NC", zipcode: "23049", parentName: "Jane Bond", parentEmail: "this@this.com", parentPhone: "3423423543", academicStats: {gpa: "3.0", readingLvl: "10th grade"}}
   }
-=======
 	state = {
 		academies: [],
 		academy: "",
@@ -59,7 +57,6 @@ class App extends Component {
 			academicStats: { gpa: "3.0", readingLvl: "10th grade" }
 		}
 	};
->>>>>>> 30beac05d87ed9c74301dcce6880a4bad5d6e9ba
 
 	componentDidMount() {
 		axios
@@ -132,7 +129,6 @@ class App extends Component {
     </Router>
   )
   }
-=======
 		axios
 			.get("/api/coaches/")
 			.then(response => {
@@ -250,7 +246,6 @@ class App extends Component {
 			</Router>
 		);
 	}
->>>>>>> 30beac05d87ed9c74301dcce6880a4bad5d6e9ba
 }
 
 export default App;
