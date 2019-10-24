@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axios from "../../node_modules/axios";
+import axios from "axios";
 
-const Login = ({ history }) => {
-	const [username, setUsername] = useState("");
+const Login = ({ username }) => {
 	const [password, setPassword] = useState("");
-	const handleUsernameChange = e => {
-		console.log(history);
-		setUsername(e.target.value);
-	};
+	
 	const handlePasswordChange = e => {
 		setPassword(e.target.value);
 	};
@@ -17,6 +13,7 @@ const Login = ({ history }) => {
 		password: password
 	};
 	const handleSubmit = e => {
+		handleSubmit(e)
 		axios.post("students/login", submitObject);
 	};
 	return (
@@ -32,7 +29,6 @@ const Login = ({ history }) => {
 						type="text"
 						id="username"
 						placeholder="USERNAME"
-						onChange={() => handleUsernameChange}
 					></input>
 
 					<label className="visuallyhidden" htmlFor="password">

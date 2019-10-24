@@ -27,6 +27,7 @@ class App extends Component {
     locations: [],
     location: "",//Load students and resources for location
     userType: "",//Coach or student for different user experience
+    username: "",
     students: [],//list of students at location
     targetStudent: {firstName: "James", lastName: "Bond", school: "Spy academy", academy: "LifeHoops", location: "Harris YMCA", picture: "https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg", grade: "6th Grade", schoolId: "34203k30s", street: "123 This St.", city: "Charlotte", state: "NC", zipcode: "23049", parentName: "Jane Bond", parentEmail: "this@this.com", parentPhone: "3423423543", academicStats: {gpa: "3.0", readingLvl: "10th grade"}}
   }
@@ -55,7 +56,27 @@ class App extends Component {
     .catch(error => {
       console.log(error)
     });
-	}
+  }
+  
+  handleLogin = () => {
+    axios.get(`/coaches/${this.state.username}`)
+    .then(response => {
+      this.setState({academy: response.academy, location: response.academy})
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
+
+  componentDidUpdate() {
+    if (this.prevState !== this.state){
+      this.handleLogin()
+    }
+  }
+
+  handleUsername = e => {
+		this.setState({username: e.target.value});
+	};
 
   render() {
     const { academies, academy, locations, location, students, targetStudent } = this.state
@@ -74,7 +95,7 @@ class App extends Component {
       <Route path="/student/show" render={(props) => <ShowStudent {...props} student={targetStudent} />} />
       <Route path="/student/signup" render={(props) => <StudentSignup {...props} location={location} locations={locations} academy={academy} academies={academies}/>} />
       <Route path="/coach/signup" render={(props) => <CoachSignup {...props} location={location} locations={locations} academy={academy} academies={academies}/>} />
-      <Route path="/login" render={(props) => <Login {...props} />} />
+      <Route path="/login" render={(props) => <Login {...props} handleUsername={this.handleUsername} />} />
       <Route path="/takeattendance" render={(props) => <TakeAttendance {...props} />} />
       <Route path="/addresource" render={(props) => <AddResource {...props} />} />
       </div>
