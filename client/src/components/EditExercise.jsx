@@ -132,7 +132,7 @@ export default class EditExercise extends Component {
 								onChange={this.onChangeDate}
 							/>
 						</div>
-					</divdiv
+						<submit className="btn btn-secondary">SAVE</submit>
 				</form>
 			</div>
 		);
