@@ -20,10 +20,10 @@ import AddResource from "./components/AddResources";
 
 class App extends Component {
 	state = {
-		academies: [],
-		academy: "",
-		locations: [],
-		location: "", //Load students and resources for location
+		academies: [{name: "LifeHoops", location:"North Charlotte"}, {name: "LifeKicks", location: "East Charlotte"}],
+		academy: "Lifehoops",
+		locations: ["East Charlotte", "North Charlotte", "South Charlotte", "West Charlotte"],
+		location: "North Charlotte", //Load students and resources for location
 		userType: "", //Coach or student for different user experience
 		username: "",
 		students: [], //list of students at location

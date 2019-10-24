@@ -50,6 +50,7 @@ app.use('/api/exercises', exercisesRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/students', studentRouter);
 app.use('/api/coaches', coachRouter)
+app.use('api/academies' academyRouter)
 
 // Creating live connection to reactjs app
 // Define any API routes before this runs
