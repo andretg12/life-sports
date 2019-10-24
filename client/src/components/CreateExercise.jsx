@@ -87,9 +87,9 @@ export default class CreateExercise extends Component {
 							value={this.state.username}
 							onChange={this.onChangeUsername}
 						>
-							{this.state.users.map(function(user) {
+							{this.state.users.map((user, i) => {
 								return (
-									<option key={user} value={user}>
+									<option key={i} value={user}>
 										{user}
 									</option>
 								);
