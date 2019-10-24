@@ -16,7 +16,7 @@ const StudentsList = ({ students, academies, academy, location, locations }) => 
 					name="academy"
 					id="student-academy-select"
 				>
-					<option>{academy}</option>
+					<option defaultValue>{academy}</option>
 					{academies.map((academy, i) => (
 						<option key={i}>{academy}</option>
 					))}
@@ -30,7 +30,7 @@ const StudentsList = ({ students, academies, academy, location, locations }) => 
 					name="location"
 					id="student-location-select"
 				>
-					<option>{location}</option>
+					<option defaultValue>{location}</option>
 					{locations.map((location, i) => (
 						<option key={i}>{location}</option>
 					))}
