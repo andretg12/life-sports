@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-
-  
-const Login = (props) => {
-  const [username, setUsername] = useState("")
+const Login = props => {
+	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
-	
+
 	const handleUsernameChange = e => {
 		setUsername(e.target.value);
 	};
@@ -23,7 +21,7 @@ const Login = (props) => {
 	const handleStudentSubmit = e => {
 		console.log(e);
 		axios.post("/api/students/login", submitObject).then(data => {
-			console.log(data);
+			console.log(data.data._id);
 		});
 	};
 	const handleCoachSubmit = e => {
@@ -44,7 +42,7 @@ const Login = (props) => {
 						type="text"
 						id="username"
 						placeholder="USERNAME"
-            			onChange={(e)=> handleUsernameChange(e)}
+						onChange={e => handleUsernameChange(e)}
 					></input>
 
 					<label className="visuallyhidden" htmlFor="password">
@@ -55,19 +53,14 @@ const Login = (props) => {
 						type="password"
 						id="password"
 						placeholder="PASSWORD"
-						onChange={(e) => handlePasswordChange(e)}
+						onChange={e => handlePasswordChange(e)}
 					></input>
 
 					<input
 						className="btn btn-secondary mt-5 ml-5 mb-5"
 						value="LOGIN"
 						onClick={() => {
-							if (props.userType === "Student") {
-								handleStudentSubmit();
-							}
-							if (props.userType === "Coach") {
-								handleCoachSubmit();
-							}
+							handleStudentSubmit();
 						}}
 					></input>
 				</form>

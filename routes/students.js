@@ -126,6 +126,8 @@ router.post("/login", async (req, res) => {
         res.send({
             academy: user.academy,
             _id: user._id,
+            userType: "Student",
+            location: user.location
         });
     } catch (err) {
         res.status(500).send(err);
@@ -149,7 +151,7 @@ router.post("/attendance/:id", async (req, res) => {
     }
 })
 
-router.post('/update/:id', (req, res) => {
+router.post('/update/:id', async (req, res) => {
     let body = req.body
     let id = req.params.id
     try {
