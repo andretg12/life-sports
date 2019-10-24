@@ -4,6 +4,7 @@
 
 const router = require('express').Router();
 let Coach = require('../models/coach.model');
+const Bcrypt = require("bcryptjs");
 
 // Your Challenge: Make rwo routes. Each will use mongojs methods
 // to interact with your mongoDB database, as instructed below.
@@ -18,7 +19,7 @@ let Coach = require('../models/coach.model');
 router.post('/add', async (req, res) => {
     try {
         req.body.password = Bcrypt.hashSync(req.body.password, 12);
-        const coach = await Student.create(req.body)
+        const coach = await Coach.create(req.body)
         res.status(200).json(coaches)
     } catch (err) {
         console.log(err)
