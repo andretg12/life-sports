@@ -15,12 +15,14 @@ let Coach = require('../models/coach.model');
 // GET: /
 // ========================================
 
-router.get("/", async (req, res) => {
+router.post('/add', async (req, res) => {
     try {
-        const coach = await Coach.find({}).exec()
-        res.json(coach)
+        req.body.password = Bcrypt.hashSync(req.body.password, 12);
+        const coach = await Student.create(req.body)
+        res.status(200).json(coaches)
     } catch (err) {
-        res.send(err)
+        console.log(err)
+        res.status(500).send(err)
     }
 })
 
@@ -41,7 +43,7 @@ router.post('/add', async (req, res) => {
     try {
         req.body.password = Bcrypt.hashSync(req.body.password, 12);
         const coach = await Coach.create(req.body)
-        res.status(200).json(coach)
+        res.status(200).send("Done")
     } catch (err) {
         res.status(500).send(err)
     }
