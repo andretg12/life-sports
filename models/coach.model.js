@@ -71,3 +71,7 @@ const coachSchema = new Schema({
         default: ["Coach"],
     }
 })
+
+const Coach = mongoose.model('Coach', coachSchema);
+
+module.exports = Coach;
