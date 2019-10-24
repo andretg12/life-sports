@@ -7,32 +7,6 @@ const StudentsList = ({ students, academies, academy, location, locations }) => 
         <div>
             <h1 className="text-center">STUDENTS</h1>
             <div className="container">
-            <form className="row">
-            <label className="visuallyhidden" htmlFor="student-academy-select">Select Academy</label>
-            <select className="form-control col-sm-6 col-md-3" name="academy" id="student-academy-select">
-                <option selected>{academy}</option>
-                {academies.map((academy, i) => <option key={i}>{academy}</option>)}
-            </select>
-
-            <label className="visuallyhidden" htmlFor="student-location-select">Select Location</label>
-            <select className="form-control col-sm-6 col-md-3" name="location" id="student-location-select">
-                <option selected>{location}</option>
-                {locations.map((location, i) => <option key={i}>{location}</option>)}
-            </select>
-
-					<label className="visuallyhidden" htmlFor="student-name-search">
-						Search by Name
-					</label>
-					<input
-						className="form-control col-sm-6 col-md-3"
-						type="text"
-						id="student-name-search"
-					></input>
-				</form>
-				{students.map((student, index) => (
-					<p key={index}>{student.firstName}</p>
-				))}
-			</div>
 			<form className="row">
 				<label className="visuallyhidden" htmlFor="student-academy-select">
 					Select Academy
@@ -83,20 +57,21 @@ const StudentsList = ({ students, academies, academy, location, locations }) => 
 					id="student-name-search"
 				></input>
 			</form>
+            <div className="row">
 			{students.map((student, i) => (
-				<div key={i} className="student-box">
-                <img
-                  src={student.picture}
-                  alt={student.firstName}
-                  className="img card-img-top"
-                ></img>
+				<div key={i} className="container">
                 <div className="card-body">
                   <h3 className="card-header">{student.firstName} {student.lastName}</h3>
-                  <p className="card-subtitle">${student.academy} {student.location}</p>
-                  <p className="card-text ml-3">{}</p>
+                  <p className="card-subtitle mt-3">{student.academy} {student.location}</p>
+                  <p className="card-text mt-3">Parent Name: {student.parentName}</p>
+                  <p className="card-text">Parent Email: {student.parentEmail}</p>
+                  <p className="card-text">Parent Phone: {student.parentPhone}</p>
+
                 </div>
               </div>
-			))}
+            ))}
+            </div>
+            </div>
 		</div>
 	);
 };
