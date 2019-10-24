@@ -70,7 +70,9 @@ class App extends Component {
     axios
       .get("/api/academy/")
       .then(response => {
-        this.setState({ academies: response.data})
+        let locations = []
+        response.data.map(academy => locations = [...locations, academy.location])
+        this.setState({ academies: response.data, locations: locations})
       })
       .catch(error => {
         console.log(error)
