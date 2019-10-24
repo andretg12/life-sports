@@ -26,9 +26,10 @@ router.get("/", async (req, res) => {
 
 router.get("/:username", async (req, res) => {
     try {
-        const coach = await Coach.findOne({username: req.params.username})
-    }
-    catch (err) {
+        const coach = await Coach.findOne({
+            username: req.params.username
+        })
+    } catch (err) {
         res.status(500).send(err)
     }
 })
@@ -79,7 +80,7 @@ router.post("/login", async (req, res) => {
         res.send({
             academy: user.academy,
             _id: user._id,
-            privileges: user.privileges,
+            userType: "Coach",
             username: user.username
         });
     } catch (err) {
