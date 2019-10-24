@@ -56,7 +56,7 @@ const StudentSignup = ({ location, locations, academy, academies }) => {
                 <label className="visuallyhidden" htmlFor="gpa">GPA</label>
                 <input className="form-control mt-5" type="text" name="gpa" id="gpa" placeholder="GPA"></input>
 
-                <button className="btn btn-secondary mt-5 mb-5" type="submit" value="submit">ADD</button>
+                <input type="submit" value="ADD" className="btn btn-secondary mt-5 mb-5" type="submit" value="submit"></input>
             </form>
         </div>
     )

@@ -105,13 +105,12 @@ const Signup = () => {
 					placeholder="LOCATION"
 				></input>
 
-				<button
+				<input
 					className="btn btn-secondary mt-5 mb-5"
 					type="submit"
-					value="submit"
+					value="SIGN UP"
 				>
-					SIGN UP
-				</button>
+				</input>
 			</form>
 		</div>
 	);

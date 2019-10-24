@@ -63,7 +63,7 @@ export default class EditExercise extends Component {
 		});
 	};
 
-	onSubmit = e => {
+	oninput = e => {
 		e.preventDefault();
 
 		const exercise = {
@@ -86,7 +86,7 @@ export default class EditExercise extends Component {
 		return (
 			<div>
 				<h1 className="text-center">Edit Exercise</h1>
-				<form onSubmit={this.onSubmit}>
+				<form oninput={this.oninput}>
 					<div className="form-group">
 						<label>Username: </label>
 						<select
@@ -132,7 +132,7 @@ export default class EditExercise extends Component {
 								onChange={this.onChangeDate}
 							/>
 						</div>
-						<submit className="btn btn-secondary">SAVE</submit>
+						<input type="submit" value="SAVE" className="btn btn-secondary"></input>
 						</div>
 				</form>
 			</div>

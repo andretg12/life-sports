@@ -29,7 +29,7 @@ const AddResource = ({ location, locations, academies, academy }) => {
                 <label className="visuallyhidden" htmlFor="resource-url">URL</label>
                 <input className="form-control mt-5" name="url" id="resource-url" placeholder="VIDEO URL"></input>
 
-                <submit className="mt-5 btn btn-secondary" value="submit">SAVE</submit>
+                <input type="submit" value="SAVE" className="mt-5 btn btn-secondary" value="input"></input>
             </form>
         </div>
     )

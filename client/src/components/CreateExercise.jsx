@@ -56,7 +56,7 @@ export default class CreateExercise extends Component {
 		});
 	}
 
-	onSubmit(e) {
+	oninput(e) {
 		e.preventDefault();
 
 		const exercise = {
@@ -77,7 +77,7 @@ export default class CreateExercise extends Component {
 		return (
 			<div>
 				<h1 className="text-center">NEW EXERCISE</h1>
-				<form className="container mt-5" onSubmit={this.onSubmit}>
+				<form className="container mt-5" oninput={this.oninput}>
 					<div className="form-group">
 						<label>Username: </label>
 						<select
@@ -124,7 +124,7 @@ export default class CreateExercise extends Component {
 							/>
 						</div>
 					</div>
-					<submit className="btn btn-secondary">SAVE</submit>
+					<input type="submit" value="SAVE" className="btn btn-secondary"></input>
 				</form>
 			</div>
 		);

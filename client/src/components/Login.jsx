@@ -57,6 +57,7 @@ const Login = props => {
 
 					<input
 						className="btn btn-secondary mt-5 ml-5 mb-5"
+						type="submit"
 						value="LOGIN"
 						onClick={() => {
 							handleStudentSubmit();
