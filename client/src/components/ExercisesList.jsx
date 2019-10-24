@@ -55,21 +55,21 @@ export default class ExercisesList extends Component {
 
 	render() {
 		return (
-			<div>
+				<div>
 				<h1 className="text-center">EXERCISES</h1>
 				<div className="container">
-					<div className="row">{
-		this.state.exercises.length > 0 ? this.state.exercises.map(currentexercise => {
-			return (
-				<Exercise
-					exercise={currentexercise}
-					deleteExercise={this.deleteExercise}
-					key={currentexercise._id}
-				/>
+					<div className="row">{this.state.exercises.length > 0 ? this.state.exercises.map(currentexercise => {
+						return (
+							<Exercise
+								exercise={currentexercise}
+								deleteExercise={this.deleteExercise}
+								key={currentexercise._id}
+							/>
 			);
-		}) : <p>No exercises created</p>}</div>
+					}) : <p>No exercises created</p>}
+					</div>
 				</div>
-				<Link to="/addexercise" className="btn nav-link lifesports">ADD EXERCISE</Link>
+				{<Link to="/addexercise" className="btn nav-link lifesports">ADD EXERCISE</Link>}
 			</div>
 		);
 	}
