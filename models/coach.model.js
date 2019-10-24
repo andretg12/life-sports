@@ -12,8 +12,6 @@ const coachSchema = new Schema({
     password: {
         type: String,
         required: true,
-        match: [/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/, "Must contain one uppercase letter, one number, one special character, and be at least 6 characters long"],
-        minlength: 6,
         trim: true
     },
     firstName: {

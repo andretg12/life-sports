@@ -3,21 +3,21 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar";
-import ExercisesList from "./Components/ExercisesList";
-import EditExercise from "./Components/EditExercise";
-import CreateExercise from "./Components/CreateExercise";
-import CreateUser from "./Components/CreateUser";
-import StudentList from "./Components/StudentsList";
-import Attendance from "./Components/Attendance";
-import Forms from "./Components/Forms";
-import Resources from "./Components/Resources";
-import ShowStudent from "./Components/ShowStudent";
-import StudentSignup from "./Components/StudentSignup";
-import CoachSignup from "./Components/CoachSignup";
-import Login from "./Components/Login";
-import TakeAttendance from "./Components/TakeAttendance";
-import AddResource from "./Components/AddResources";
+import Navbar from "./components/Navbar";
+import ExercisesList from "./components/ExercisesList"; //Import components
+import EditExercise from "./components/EditExercise";
+import CreateExercise from "./components/CreateExercise";
+import CreateUser from "./components/CreateUser";
+import StudentList from "./components/StudentsList";
+import Attendance from "./components/Attendance";
+import Forms from "./components/Forms";
+import Resources from "./components/Resources";
+import ShowStudent from "./components/ShowStudent";
+import StudentSignup from "./components/StudentSignup";
+import CoachSignup from "./components/CoachSignup";
+import Login from "./components/Login";
+import TakeAttendance from "./components/TakeAttendance";
+import AddResource from "./components/AddResources";
 
 class App extends Component {
 	state = {
@@ -66,17 +66,18 @@ class App extends Component {
 			})
 			.catch(error => {
 				console.log(error);
-			});
+      });
+    }
 
-		axios
-			.get("api/academies/")
-			.then(response => {
-				this.setState({ academies: response.data });
-			})
-			.catch(error => {
-				console.log(error);
-			});
-	}
+	// 	axios
+	// 		.get("api/academies/")
+	// 		.then(response => {
+	// 			this.setState({ academies: response.data });
+	// 		})
+	// 		.catch(error => {
+	// 			console.log(error);
+	// 		});
+	// }
 
 	handleLogin = () => {
 		axios
@@ -201,7 +202,6 @@ class App extends Component {
 				</div>
 			</Router>
 		);
-	}
-}
+	}}
 
 export default App;
