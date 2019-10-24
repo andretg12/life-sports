@@ -26,7 +26,7 @@ const StudentSignup = ({ location, locations, academy, academies }) => {
                 <label className="visuallyhidden" htmlFor="student-academy">Academy</label>
                 <select className="form-control mt-5" type="text" name="academy" id="student-academy" placeholder="ACADEMY">
                 <option defaultValue>{academy}</option>
-                {academies.map((academy, i)  => <option key={i}>{academy}</option>)}
+                {academies.map((academy, i)  => <option key={i}>{academy.name}</option>)}
                 </select>
 
                 <label className="visuallyhidden" htmlFor="student-location">Location</label>
