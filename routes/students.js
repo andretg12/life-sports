@@ -126,6 +126,8 @@ router.post("/login", async (req, res) => {
         res.send({
             academy: user.academy,
             _id: user._id,
+            userType: "Student",
+            location: user.location
         });
     } catch (err) {
         res.status(500).send(err);

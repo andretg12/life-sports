@@ -92,12 +92,6 @@ class App extends Component {
 			});
 	};
 
-	componentDidUpdate() {
-		if (this.prevState !== this.state) {
-			this.handleLogin();
-		}
-	}
-
 	handleUsername = e => {
 		this.setState({ username: e.target.value });
 	};
