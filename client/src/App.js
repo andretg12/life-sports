@@ -3,6 +3,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import Navbar from "./Components/Navbar";
 import ExercisesList from "./Components/ExercisesList";
 import EditExercise from "./Components/EditExercise";
@@ -41,31 +42,39 @@ class App extends Component {
 				console.log(error);
 			});
 
-		axios.get("/coaches/").then(response => {
-			this.setState({ coaches: response.data });
-    })
-    .catch(error => {
-      console.log(error);
-    });
-    
-    // axios.get("/academies/")
-    // .then(response => {
-    //   this.setState({ academies: response.data })
-    // })
-    // .catch(error => {
-    //   console.log(error)
-    // });
-  }
-  
-  handleLogin = () => {
-    axios.get(`/coaches/${this.state.username}`)
-    .then(response => {
-      this.setState({academy: response.academy, location: response.academy})
-    })
-    .catch(error => {
-      console.log(error)
-    })
-  }
+
+		axios
+			.get("api/coaches/")
+			.then(response => {
+				this.setState({ coaches: response.data });
+			})
+			.catch(error => {
+				console.log(error);
+			});
+
+		axios
+			.get("api/academies/")
+			.then(response => {
+				this.setState({ academies: response.data });
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	}
+
+	handleLogin = () => {
+		axios
+			.get(`/coaches/${this.state.username}`)
+			.then(response => {
+				this.setState({
+					academy: response.academy,
+					location: response.academy
+				});
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	};
 
   componentDidUpdate() {
     if (this.prevState !== this.state){
