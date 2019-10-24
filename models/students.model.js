@@ -116,9 +116,9 @@ const studentSchema = new Schema({
       required: true
     },
     blocks: {
-      types: Number,
+      type: Number,
       default: 0,
-      required: true,
+      required: true
     },
     steals: {
       type: Number,

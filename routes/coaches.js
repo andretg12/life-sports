@@ -34,17 +34,22 @@ router.post('/add', async (req, res) => {
         res.status(200).json(coach)
     } catch (err) {
         console.log(err)
-        res.status(500).send(err)
+        res.status(500).json(err)
     }
 })
 
 
-router.post("/update", (req, res) => {
+router.post("/update/:id", async (req, res) => {
     let body = req.body
+    let id = req.params.id
     try {
+        const newCoach = await Coach.replaceOne({
+            _id: id
+        }, body)
+        res.status(200).send(newCoach)
 
     } catch (err) {
-
+        res.status(400).json(err)
     }
 })
 
