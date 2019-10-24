@@ -149,7 +149,7 @@ router.post("/attendance/:id", async (req, res) => {
     }
 })
 
-router.post('/update/:id', (req, res) => {
+router.post('/update/:id', async (req, res) => {
     let body = req.body
     let id = req.params.id
     try {
