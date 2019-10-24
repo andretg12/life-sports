@@ -39,7 +39,7 @@ npm start
 ```
 
 ## Try Our APP
-[Open in Heroku]()
+[Open in Heroku](https://lifesportslondon.herokuapp.com/)
 
 ## Our Team
 Andre Torrealba
