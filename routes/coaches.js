@@ -53,6 +53,32 @@ router.post("/update/:id", async (req, res) => {
     }
 })
 
+router.post("/login", async (req, res) => {
+    try {
+        const user = await Coach.findOne({
+            username: req.body.username
+        }).exec();
+        if (!user) {
+            return res.status(400).send({
+                message: "The username does not exist"
+            });
+        }
+        if (!Bcrypt.compareSync(req.body.password, user.password)) {
+            return res.status(400).send({
+                message: "The password is invalid"
+            });
+        }
+        res.send({
+            academy: user.academy,
+            _id: user._id,
+            privileges: user.privileges,
+            username: user.username
+        });
+    } catch (err) {
+        res.status(500).send(err);
+    }
+})
+
 
 
 

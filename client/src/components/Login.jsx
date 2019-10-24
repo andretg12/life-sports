@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../node_modules/axios";
 
-const Login = ({ history }) => {
+const Login = props => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+
 	const handleUsernameChange = e => {
-		console.log(history);
+		console.log(props);
 		setUsername(e.target.value);
 	};
 	const handlePasswordChange = e => {
@@ -16,12 +17,16 @@ const Login = ({ history }) => {
 		username: username,
 		password: password
 	};
-	const handleSubmit = e => {
-		axios.post("students/login", submitObject).then(data => {
-			if (data.studentID) {
-				window.location.pathname.replace(`/student/${data._id}`);
-			}
-			if(data.)
+	//do two handle submits and on the
+	const handleStudentSubmit = e => {
+		console.log(e);
+		axios.post("/api/students/login", submitObject).then(data => {
+			console.log(data);
+		});
+	};
+	const handleCoachSubmit = e => {
+		axios.post("coaches/login", submitObject).then(data => {
+			window.location.pathname.replace(`/allstudents`);
 		});
 	};
 	return (
@@ -54,7 +59,14 @@ const Login = ({ history }) => {
 					<input
 						className="btn btn-secondary mt-5 ml-5 mb-5"
 						value="LOGIN"
-						onClick={handleSubmit}
+						onClick={() => {
+							if (props.userType === "Student") {
+								handleStudentSubmit();
+							}
+							if (props.userType === "Coach") {
+								handleCoachSubmit();
+							}
+						}}
 					></input>
 				</form>
 			</div>

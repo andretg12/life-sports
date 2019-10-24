@@ -51,7 +51,7 @@ router.get('/:id', async (req, res) => {
 
 // students by location
 //GET students/:location
-router.get("/", async (req, res) => {
+router.get("/location", async (req, res) => {
     const location = req.query.location
     try {
         const student = await Student.find({
@@ -150,9 +150,16 @@ router.post("/attendance/:id", async (req, res) => {
 })
 
 router.post('/update/:id', (req, res) => {
-    const keys = Object.keys(req.body)
-    for (i = 0; i <= keys.length; i++) {
+    let body = req.body
+    let id = req.params.id
+    try {
+        const newStudent = await Student.replaceOne({
+            _id: id
+        }, body)
+        res.status(200).send(newStudent)
 
+    } catch (err) {
+        res.status(400).json(err)
     }
 })
 
