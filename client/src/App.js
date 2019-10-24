@@ -20,7 +20,6 @@ import TakeAttendance from "./Components/TakeAttendance";
 import AddResource from "./Components/AddResources";
 
 class App extends Component {
-<<<<<<< HEAD
   state = {
     academies: [],
     academy: "",
@@ -31,35 +30,6 @@ class App extends Component {
     students: [],//list of students at location
     targetStudent: {firstName: "James", lastName: "Bond", school: "Spy academy", academy: "LifeHoops", location: "Harris YMCA", picture: "https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg", grade: "6th Grade", schoolId: "34203k30s", street: "123 This St.", city: "Charlotte", state: "NC", zipcode: "23049", parentName: "Jane Bond", parentEmail: "this@this.com", parentPhone: "3423423543", academicStats: {gpa: "3.0", readingLvl: "10th grade"}}
   }
-=======
-	state = {
-		academies: [],
-		academy: "",
-		locations: [],
-		location: "", //Load students and resources for location
-		userType: "", //Coach or student for different user experience
-		students: [], //list of students at location
-		targetStudent: {
-			firstName: "James",
-			lastName: "Bond",
-			school: "Spy academy",
-			academy: "LifeHoops",
-			location: "Harris YMCA",
-			picture:
-				"https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
-			grade: "6th Grade",
-			schoolId: "34203k30s",
-			street: "123 This St.",
-			city: "Charlotte",
-			state: "NC",
-			zipcode: "23049",
-			parentName: "Jane Bond",
-			parentEmail: "this@this.com",
-			parentPhone: "3423423543",
-			academicStats: { gpa: "3.0", readingLvl: "10th grade" }
-		}
-	};
->>>>>>> 30beac05d87ed9c74301dcce6880a4bad5d6e9ba
 
 	componentDidMount() {
 		axios
@@ -71,7 +41,6 @@ class App extends Component {
 				console.log(error);
 			});
 
-<<<<<<< HEAD
 		axios.get("/coaches/").then(response => {
 			this.setState({ coaches: response.data });
     })
@@ -79,13 +48,13 @@ class App extends Component {
       console.log(error);
     });
     
-    axios.get("/academies/")
-    .then(response => {
-      this.setState({ academies: response.data })
-    })
-    .catch(error => {
-      console.log(error)
-    });
+    // axios.get("/academies/")
+    // .then(response => {
+    //   this.setState({ academies: response.data })
+    // })
+    // .catch(error => {
+    //   console.log(error)
+    // });
   }
   
   handleLogin = () => {
@@ -116,7 +85,7 @@ class App extends Component {
       <div className="">
       <Route path="/" exact render={(props) => <StudentList {...props} students={students} location={location} academy={academy} locations={locations} academies={academies} />} />
       <Route path="/edit/:id" render={(props) => <EditExercise {...props} onChangeStudent={this.onChangeStudent} onChangeDescription={this.onChangeDescription} onChangeDuration={this.onChangeDuration} onChangeDate={this.onChangeDate} onSubmit={this.onSubmitExercise}/>} />
-      <Route path="/create" render={(props) => <CreateExercise {...props} />} />
+      <Route path="/addexercise" render={(props) => <CreateExercise {...props} />} />
       <Route path="/attendance" render={(props) => <Attendance {...props} students={students} />} />
       <Route path="/user" render={(props) => <CreateUser {...props} />} />
       <Route path="/exercise" component={ExercisesList} />
@@ -127,125 +96,11 @@ class App extends Component {
       <Route path="/coach/signup" render={(props) => <CoachSignup {...props} location={location} locations={locations} academy={academy} academies={academies}/>} />
       <Route path="/login" render={(props) => <Login {...props} handleUsername={this.handleUsername} />} />
       <Route path="/takeattendance" render={(props) => <TakeAttendance {...props} />} />
-      <Route path="/addresource" render={(props) => <AddResource {...props} />} />
+      <Route path="/addresource" render={(props) => <AddResource {...props} location={location} academy={academy} academies={academies} locations={locations}/>} />
       </div>
     </Router>
   )
   }
-=======
-		axios
-			.get("/coaches/")
-			.then(response => {
-				this.setState({ coaches: response.data });
-			})
-			.catch(error => {
-				console.log(error);
-			});
-
-		axios
-			.get("/academies/")
-			.then(response => {
-				this.setState({ academies: response.data });
-			})
-			.catch(error => {
-				console.log(error);
-			});
-	}
-
-	render() {
-		const {
-			academies,
-			academy,
-			locations,
-			location,
-			students,
-			targetStudent
-		} = this.state;
-		return (
-			<Router>
-				<Navbar />
-				<div className="">
-					<Route
-						path="/"
-						exact
-						render={props => (
-							<StudentList
-								{...props}
-								students={students}
-								location={location}
-								academy={academy}
-								locations={locations}
-								academies={academies}
-							/>
-						)}
-					/>
-					<Route
-						path="/edit/:id"
-						render={props => (
-							<EditExercise
-								{...props}
-								onChangeStudent={this.onChangeStudent}
-								onChangeDescription={this.onChangeDescription}
-								onChangeDuration={this.onChangeDuration}
-								onChangeDate={this.onChangeDate}
-								onSubmit={this.onSubmitExercise}
-							/>
-						)}
-					/>
-					<Route
-						path="/create"
-						render={props => <CreateExercise {...props} />}
-					/>
-					<Route
-						path="/attendance"
-						render={props => <Attendance {...props} students={students} />}
-					/>
-					<Route path="/user" render={props => <CreateUser {...props} />} />
-					<Route path="/exercise" component={ExercisesList} />
-					<Route path="/form" render={props => <Forms {...props} />} />
-					<Route path="/resources" render={props => <Resources {...props} />} />
-					<Route
-						path="/student/show"
-						render={props => <ShowStudent {...props} student={targetStudent} />}
-					/>
-					<Route
-						path="/student/signup"
-						render={props => (
-							<StudentSignup
-								{...props}
-								location={location}
-								locations={locations}
-								academy={academy}
-								academies={academies}
-							/>
-						)}
-					/>
-					<Route
-						path="/coach/signup"
-						render={props => (
-							<CoachSignup
-								{...props}
-								location={location}
-								locations={locations}
-								academy={academy}
-								academies={academies}
-							/>
-						)}
-					/>
-					<Route path="/login" render={props => <Login {...props} />} />
-					<Route
-						path="/takeattendance"
-						render={props => <TakeAttendance {...props} />}
-					/>
-					<Route
-						path="/addresource"
-						render={props => <AddResource {...props} />}
-					/>
-				</div>
-			</Router>
-		);
-	}
->>>>>>> 30beac05d87ed9c74301dcce6880a4bad5d6e9ba
 }
 
 export default App;

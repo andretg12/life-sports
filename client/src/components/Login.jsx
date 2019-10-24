@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Login = ({ username }) => {
+const Login = ({ username, handleUsername }) => {
 	const [password, setPassword] = useState("");
 	
 	const handlePasswordChange = e => {
@@ -33,6 +33,7 @@ const Login = ({ username }) => {
 						type="text"
 						id="username"
 						placeholder="USERNAME"
+						onChange={(e) => handleUsername(e)}
 					></input>
 
 					<label className="visuallyhidden" htmlFor="password">
@@ -43,7 +44,7 @@ const Login = ({ username }) => {
 						type="password"
 						id="password"
 						placeholder="PASSWORD"
-						onChange={() => handlePasswordChange}
+						onChange={(e) => handlePasswordChange(e)}
 					></input>
 
 					<input

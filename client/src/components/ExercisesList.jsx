@@ -2,15 +2,15 @@ import React, { Component } from "../../node_modules/react";
 import { Link } from "../../node_modules/react-router-dom";
 import axios from "axios";
 
-const Exercise = props => (
-	<tr>
-		<td>{props.exercise.username}</td>
-		<td>{props.exercise.description}</td>
-		<td>{props.exercise.duration}</td>
-		<td>{props.exercise.date.substring(0, 10)}</td>
-		<td>
-			<Link to={"/edit/" + props.exercise._id}>edit</Link>
-			<a
+const Exercise = (props) => (
+<div className="exercise-box">
+<div className="card-body">
+  <p className="card-header">Date: {props.exercise.username}</p>
+  <p className="card-subtitle">Duration: {props.exercise.description}</p>
+  <p className="card-text ml-3">{props.exercise.duration}</p>
+  <p className="card-text ml-3">{props.exercise.date.substring(0,10)}</p>
+  <Link to={"/edit/" + props.exercise._id}>edit</Link>
+  <a
 				href="#"
 				onClick={() => {
 					props.deleteExercise(props.exercise._id);
@@ -18,8 +18,8 @@ const Exercise = props => (
 			>
 				delete
 			</a>
-		</td>
-	</tr>
+</div>
+</div>
 );
 
 export default class ExercisesList extends Component {
@@ -67,19 +67,11 @@ export default class ExercisesList extends Component {
 	render() {
 		return (
 			<div>
-				<h1 className="text-center">Exercises</h1>
-				<table className="table">
-					<thead className="thead-light">
-						<tr>
-							<th>Username</th>
-							<th>Description</th>
-							<th>Duration</th>
-							<th>Date</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody>{this.exerciseList()}</tbody>
-				</table>
+				<h1 className="text-center">EXERCISES</h1>
+				<div className="container">
+					<div className="row">{this.exerciseList()}</div>
+				</div>
+				<Link to="/addexercise" className="btn nav-link lifesports">ADD EXERCISE</Link>
 			</div>
 		);
 	}
