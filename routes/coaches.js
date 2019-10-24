@@ -24,6 +24,15 @@ router.get("/", async (req, res) => {
     }
 })
 
+router.get("/:username", async (req, res) => {
+    try {
+        const coach = await Coach.findOne({username: req.params.username})
+    }
+    catch (err) {
+        res.status(500).send(err)
+    }
+})
+
 // 2. add a new user
 // POST /coaches/add
 // ========================================
@@ -33,8 +42,7 @@ router.post('/add', async (req, res) => {
         const coach = await Coach.create(req.body)
         res.status(200).json(coach)
     } catch (err) {
-        console.log(err)
-        res.status(500).json(err)
+        res.status(500).send(err)
     }
 })
 

@@ -1,34 +1,52 @@
-# LifeSports Challlenge and Hackathon
+# LIFESPORTS APP
 
-### About Us
+## What is our app?
+This app was made for a non-profit called lifesports. It allows the coaches to keep track of the students on their team, permission slips, exercises they have done, how well they have been performing in games, how they are doing academically and much more. 
 
-### Build Components
+The app was built using React, Node, MongoDB Atlas, and Mongoose. To be able to easily display the data received from our database and change the user experience for different users we built our frontend with React allowing us to use map for creating options in our select and data for our lists. 
 
-### Usage
+Our server is coded with Node Express. This allows us to group our routes/endpoints by what they are for, such as, students, coaches, academies. 
 
-```js
+Our database is hosted on MongoDB Atlas. This allows us to connect to Heroku and still access our data. Using MongoDB also allowed us to use arrays for some of our data that would be grouped together, such as different resources or books read by the students.
+
+Finally Mongoose gave our database structure. We created our schemas with it so that our data structure remained uniform and we could predict what data we would get back with queries.
+
+## Getting started
+You are interested in using our code? Awesome! Here are the instructions to get you on your way:
+
+First after cloning or forking the code in your terminal run
+```bash
+npm install
 ```
 
-#### Challenge Instructions
+Next you will need to connect the app to a database platform either local or we would reccommend MongoDB Atlas. Create a .env file for your URI and port. Create a ATLAS_URI or LOCAL_URI for your database and make sure that that the variable matches on the server (index.js file). This variable should look something like this:
+```
+ATLAS_URI="Atlas URI Here"
+```
+or
+```
+LOCAL_URI="mongodb://localhost:27017/databasename"
+```
 
-The challenge requirements for this week are as follows:
+You will also need a port variable for local testing. Our project runs the server on port 5000. If you want to change the port number you will need to change the proxy in the client package.json as well. The variable for the port should look like this:
+```
+PORT="5000"
+```
 
-1. Complete the API endpoints in the LifeSports Express server. Note that all MongoDB functions must use the mongoose data model that is provides
+Finally to start the app on your computer open your terminal again and run
+```bash
+npm start
+```
 
-2. Refactor this code to work with your MongoDB Atlas database. You should update your .env file so that you can use either mongodb locally on on Atlas
+## Try Our APP
+[Open in Heroku](https://lifesportslondon.herokuapp.com/)
 
-3. Deploy your app to Heroku
+## Our Team
+Andre Torrealba
 
-4. Submit the link to your professionally composed GitHub acct with the Link to your working app by Monday, Oct 21 at 5pm. The github acct should have the link to your live heroku app
+Skyler Stevens
 
-The APIs will be tested and the github accts reviewed to determine the number of points earned n the challenge submission
+Reggie Harris
 
-#### Hackathon Challenge
-
-1. Use the working version of your LifeSports app from the Challenge to go the next level!
-
-2. Be creative! Develop a new and more engaging UI for your 'workout tracker' and deliver an app that will captivate the LifeSports' coaches!
-
-3. Each submission should include an updated UI, with updates, as required, to the mongoose data model, api server and integrations. All Submissions must be deployed with a professionally composed github repo and a live working app on Heroku
-
-4. The deadline for all submissions in Thursday, Oct 24 at 5pm
+## License
+MIT

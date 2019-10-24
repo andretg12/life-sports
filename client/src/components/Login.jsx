@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import axios from "../../node_modules/axios";
+import axios from "axios";
 
-const Login = props => {
-	const [username, setUsername] = useState("");
+
+  
+const Login = ({ username }) => {
+  const [username, setUsername] = useState("")
 	const [password, setPassword] = useState("");
-
+	
 	const handleUsernameChange = e => {
-		console.log(props);
 		setUsername(e.target.value);
 	};
 	const handlePasswordChange = e => {
@@ -17,6 +18,7 @@ const Login = props => {
 		username: username,
 		password: password
 	};
+
 	//do two handle submits and on the
 	const handleStudentSubmit = e => {
 		console.log(e);
@@ -42,7 +44,7 @@ const Login = props => {
 						type="text"
 						id="username"
 						placeholder="USERNAME"
-						onChange={() => handleUsernameChange}
+            onChange={()=> handleUsernameChange}
 					></input>
 
 					<label className="visuallyhidden" htmlFor="password">
