@@ -19,14 +19,13 @@ const Login = props => {
 
 	//do two handle submits and on the
 	const handleStudentSubmit = e => {
-		console.log(e);
 		axios.post("/api/students/login", submitObject).then(data => {
-			console.log(data.data._id);
+			window.location.href = `/`;
 		});
 	};
 	const handleCoachSubmit = e => {
 		axios.post("coaches/login", submitObject).then(data => {
-			window.location.pathname.replace(`/allstudents`);
+			window.location.href = `/`;
 		});
 	};
 	return (
