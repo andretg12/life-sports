@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-<<<<<<< HEAD
-const Login = ({ username, handleUsername }) => {
-=======
 
   
 const Login = ({ username }) => {
   const [username, setUsername] = useState("")
->>>>>>> ef2cec3d4fe86339f0444fbacab79b5ab0cba89b
 	const [password, setPassword] = useState("");
 	
 	const handleUsernameChange = e => {
@@ -48,11 +44,7 @@ const Login = ({ username }) => {
 						type="text"
 						id="username"
 						placeholder="USERNAME"
-<<<<<<< HEAD
-						onChange={(e) => handleUsername(e)}
-=======
-            onChange={()=> handleUsernameChange}
->>>>>>> ef2cec3d4fe86339f0444fbacab79b5ab0cba89b
+            			onChange={(e)=> handleUsernameChange}
 					></input>
 
 					<label className="visuallyhidden" htmlFor="password">
