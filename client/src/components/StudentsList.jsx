@@ -7,7 +7,7 @@ const StudentsList = ({ students, academies, academy, location, locations }) => 
         <div>
             <h1 className="text-center">STUDENTS</h1>
             <div className="container">
-			<form className="row">
+			{/* <form className="row">
 				<label className="visuallyhidden" htmlFor="student-academy-select">
 					Select Academy
 				</label>
@@ -56,7 +56,7 @@ const StudentsList = ({ students, academies, academy, location, locations }) => 
 					type="text"
 					id="student-name-search"
 				></input>
-			</form>
+			</form> */}
             <div className="row">
 			{students.map((student, i) => (
 				<div key={i} className="container">
