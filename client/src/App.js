@@ -7,7 +7,6 @@ import Navbar from "./components/Navbar";
 import ExercisesList from "./components/ExercisesList"; //Import components
 import EditExercise from "./components/EditExercise";
 import CreateExercise from "./components/CreateExercise";
-import CreateUser from "./components/CreateUser";
 import StudentList from "./components/StudentsList";
 import Attendance from "./components/Attendance";
 import Forms from "./components/Forms";
