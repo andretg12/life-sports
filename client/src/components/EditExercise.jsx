@@ -133,6 +133,7 @@ export default class EditExercise extends Component {
 							/>
 						</div>
 						<submit className="btn btn-secondary">SAVE</submit>
+						</div>
 				</form>
 			</div>
 		);
