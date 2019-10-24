@@ -66,17 +66,18 @@ class App extends Component {
 			})
 			.catch(error => {
 				console.log(error);
-			});
+      });
+    }
 
-		axios
-			.get("api/academies/")
-			.then(response => {
-				this.setState({ academies: response.data });
-			})
-			.catch(error => {
-				console.log(error);
-			});
-	}
+	// 	axios
+	// 		.get("api/academies/")
+	// 		.then(response => {
+	// 			this.setState({ academies: response.data });
+	// 		})
+	// 		.catch(error => {
+	// 			console.log(error);
+	// 		});
+	// }
 
 	handleLogin = () => {
 		axios
@@ -201,7 +202,6 @@ class App extends Component {
 				</div>
 			</Router>
 		);
-	}
-}
+	}}
 
 export default App;
