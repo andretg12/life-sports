@@ -45,10 +45,11 @@ connection.once('open', () => {
 const exercisesRouter = require('./routes/exercises');
 const usersRouter = require('./routes/coaches');
 const studentRouter = require('./routes/students')
-
+const coachRouter = require('./routes/coaches')
 app.use('/api/exercises', exercisesRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/students', studentRouter);
+app.use('/api/coaches', coachRouter)
 
 // Creating live connection to reactjs app
 // Define any API routes before this runs
