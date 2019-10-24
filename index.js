@@ -46,9 +46,9 @@ const exercisesRouter = require('./routes/exercises');
 const usersRouter = require('./routes/coaches');
 const studentRouter = require('./routes/students')
 
-app.use('/exercises', exercisesRouter);
-app.use('/users', usersRouter);
-app.use('/students', studentRouter);
+app.use('/api/exercises', exercisesRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/students', studentRouter);
 
 // Creating live connection to reactjs app
 // Define any API routes before this runs

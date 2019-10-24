@@ -51,18 +51,18 @@ const academySchema = new Schema({
     },
     resources: {
         readingList: [{
-                title: {
-                    type: String,
-                    required: true
-                },
-                author: {
-                    type: String,
-                    required: true
-                },
-                URL: {
-                    type: String
-                }
-            }],
+            title: {
+                type: String,
+                required: true
+            },
+            author: {
+                type: String,
+                required: true
+            },
+            URL: {
+                type: String
+            }
+        }],
         academicArticles: [{
             title: {
                 type: String,
@@ -94,5 +94,8 @@ const academySchema = new Schema({
             }
         }
     },
-    
+
 })
+const Academy = mongoose.model('Academy', academySchema);
+
+module.exports = Academy;
