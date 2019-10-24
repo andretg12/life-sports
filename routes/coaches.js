@@ -43,7 +43,7 @@ router.post('/add', async (req, res) => {
     try {
         req.body.password = Bcrypt.hashSync(req.body.password, 12);
         const coach = await Coach.create(req.body)
-        res.status(200).send("Done")
+        res.status(200).json(coach)
     } catch (err) {
         res.status(500).send(err)
     }
