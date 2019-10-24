@@ -1,16 +1,18 @@
 import React from "react";
 import ReactPlayer from "react-player";
+import { Link } from "react-router-dom"
 
 const Resources = () => {
 	return (
 		<div>
 			<h1 className="text-center">RESOURCES</h1>
-			<a className="btn btn-secondary" href="#academic">
+			<a className="btn btn-secondary ml-2" href="#academic">
 				Academic
 			</a>
-			<a className="btn btn-secondary" href="#sports">
+			<a className="btn btn-secondary ml-2" href="#sports">
 				Sports
 			</a>
+            <div className="container mt-5">
 			<div id="academic">
 				<h2>Academic</h2>
 				<div className="mt-3 mb-5">
@@ -70,7 +72,9 @@ const Resources = () => {
 						height="100"
 					/>
 				</div>
+                </div>
 			</div>
+            <Link to="/addresource" className="btn nav-link lifesports">ADD RESOURCE</Link>
 		</div>
 	);
 };

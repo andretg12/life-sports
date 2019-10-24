@@ -27,6 +27,18 @@ img{
   height: 100px;
 }
 
+.lifesports{
+  background-color: #FBCA1E;
+  color: black;
+  position: fixed;
+  bottom: 0px;
+  right: 0px; 
+}
+
+.lifesports:hover{
+  background-color: rgb(163, 135, 33);
+}
+
 .lifesports-nav {
   background-color: #FBCA1E;
   color: black;

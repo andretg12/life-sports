@@ -83,8 +83,19 @@ const StudentsList = ({ students, academies, academy, location, locations }) => 
 					id="student-name-search"
 				></input>
 			</form>
-			{students.map(student => (
-				<p key={student}>{student.firstname}</p>
+			{students.map((student, i) => (
+				<div key={i} className="student-box">
+                <img
+                  src={student.picture}
+                  alt={student.firstName}
+                  className="img card-img-top"
+                ></img>
+                <div className="card-body">
+                  <h3 className="card-header">{student.firstName} {student.lastName}</h3>
+                  <p className="card-subtitle">${student.academy} {student.location}</p>
+                  <p className="card-text ml-3">{}</p>
+                </div>
+              </div>
 			))}
 		</div>
 	);
