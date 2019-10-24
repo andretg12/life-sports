@@ -146,7 +146,7 @@ class App extends Component {
 						render={props => <Attendance {...props} students={students} />}
 					/>
 					<Route path="/user" render={props => <CreateUser {...props} />} />
-					<Route path="/exercise" component={ExercisesList} />
+					<Route path="/exercise" render={props => <ExercisesList {...props} />} />
 					<Route path="/form" render={props => <Forms {...props} />} />
 					<Route path="/resources" render={props => <Resources {...props} />} />
 					<Route
