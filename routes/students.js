@@ -124,7 +124,8 @@ router.post("/login", async (req, res) => {
             });
         }
         res.send({
-            message: "The username and password combination is correct!"
+            academy: user.academy,
+            _id: user._id,
         });
     } catch (err) {
         res.status(500).send(err);
@@ -136,15 +137,22 @@ router.post("/attendance/:id", async (req, res) => {
         const user = await Student.updateOne({
             _id: req.params.id
         }, {
-            $set: {
-                "attendance": [].push({
+            $push: {
+                "attendance": [{
                     date: Date.now,
                     attended: req.body.attended
-                })
+                }]
             }
         })
     } catch (err) {
         res.status(500).send(err)
+    }
+})
+
+router.post('/update/:id', (req, res) => {
+    const keys = Object.keys(req.body)
+    for (i = 0; i <= keys.length; i++) {
+
     }
 })
 

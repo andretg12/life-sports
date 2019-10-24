@@ -15,6 +15,9 @@ const studentSchema = new Schema({
     required: true,
     default: false
   },
+  attendace: {
+    type: [String]
+  },
   password: {
     type: String,
     required: true,
@@ -91,185 +94,179 @@ const studentSchema = new Schema({
     default: "https://www.pinclipart.com/picdir/middle/322-3222849_north-carolina-tar-heels-duke-blue-devils.png"
   },
   basketballStats: {
-    type: {
-      position: {
-        type: String,
-        required: true,
-        defalut: "N/A",
-        trim: true,
-      },
-      minutesPlayed: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      points: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      assists: {
-        type: Number,
-        default: 0,
-        required: true
-      },
-      blocks: {
-        types: Number,
-        default: 0,
-        required: true,
-      },
-      steals: {
-        type: Number,
-        default: 0,
-        required: true
-      },
-      fga: {
-        type: Number,
-        default: 0,
-        required: true
-      },
-      fgm: {
-        type: Number,
-        default: 0,
-        required: true
-      },
-      freeTA: {
-        type: Number,
-        default: 0,
-        required: true
-      },
-      freeTM: {
-        type: Number,
-        default: 0,
-        required: true
-      },
-      rebounds: {
-        type: Number,
-        default: 0,
-        required: true
-      },
-      gamesPlayed: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      tpm: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      tpa: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      turnovers: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      fouls: {
-        type: Number,
-        required: true,
-        default: 0
-      }
+    position: {
+      type: String,
+      required: true,
+      default: "N/A",
+      trim: true,
+    },
+    minutesPlayed: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    points: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    assists: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+    blocks: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+    steals: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+    fga: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+    fgm: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+    freeTA: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+    freeTM: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+    rebounds: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+    gamesPlayed: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    tpm: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    tpa: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    turnovers: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    fouls: {
+      type: Number,
+      required: true,
+      default: 0
     }
   },
   soccerStats: {
-    type: {
-      position: {
-        type: String,
-        required: true,
-        default: "N/A",
-        trim: true
-      },
-      goals: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      matchesPlayed: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      playingTime: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      assists: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      yellowCards: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      redCards: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      saves: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      goalsAgainst: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      fouls: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      passAttempt: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      passMade: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      goalAttempt: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      onTarget: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      milesRun: {
-        type: Number,
-        required: true,
-        default: 0
-      }
+    position: {
+      type: String,
+      required: true,
+      default: "N/A",
+      trim: true
     },
+    goals: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    matchesPlayed: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    playingTime: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    assists: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    yellowCards: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    redCards: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    saves: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    goalsAgainst: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    fouls: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    passAttempt: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    passMade: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    goalAttempt: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    onTarget: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    milesRun: {
+      type: Number,
+      required: true,
+      default: 0
+    }
   },
   academicStats: {
-    type: {
-      booksRead: [String],
-      gpa: {
-        type: String,
-        required: true,
-        trim: true,
-        default: "N/A"
-      },
-      readingLvl: {
-        type: String,
-        trim: true,
-        required: true,
-        default: "N/A"
-      }
+    booksRead: [String],
+    gpa: {
+      type: String,
+      required: true,
+      trim: true,
+      default: "N/A"
+    },
+    readingLvl: {
+      type: String,
+      trim: true,
+      required: true,
+      default: "N/A"
     }
   }
 }, {
