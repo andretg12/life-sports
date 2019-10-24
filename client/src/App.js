@@ -63,9 +63,9 @@ class App extends Component {
 
 	componentDidMount() {
 		axios
-			.get("/students")
+			.get("/api/students/")
 			.then(response => {
-				this.setState({ students: response.data });
+				this.setState({ students: response.data, userType: "Student" });
 			})
 			.catch(error => {
 				console.log(error);
@@ -134,16 +134,16 @@ class App extends Component {
   }
 =======
 		axios
-			.get("/coaches/")
+			.get("/api/coaches/")
 			.then(response => {
-				this.setState({ coaches: response.data });
+				this.setState({ coaches: response.data, usertype: "Coach" });
 			})
 			.catch(error => {
 				console.log(error);
 			});
 
 		axios
-			.get("/academies/")
+			.get("api/academies/")
 			.then(response => {
 				this.setState({ academies: response.data });
 			})
@@ -155,6 +155,8 @@ class App extends Component {
 	render() {
 		const {
 			academies,
+			coaches,
+			userType,
 			academy,
 			locations,
 			location,
@@ -232,7 +234,10 @@ class App extends Component {
 							/>
 						)}
 					/>
-					<Route path="/login" render={props => <Login {...props} />} />
+					<Route
+						path="/login"
+						render={props => <Login {...props} userType={userType} />}
+					/>
 					<Route
 						path="/takeattendance"
 						render={props => <TakeAttendance {...props} />}

@@ -10,6 +10,11 @@ const studentSchema = new Schema({
     trim: true,
     minlength: 3
   },
+  location: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   active: {
     type: Boolean,
     required: true,
