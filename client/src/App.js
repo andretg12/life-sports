@@ -3,7 +3,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar";
+import Navbar from "../Components/NavBar";
 import ExercisesList from "./Components/ExercisesList";
 import EditExercise from "./Components/EditExercise";
 import CreateExercise from "./Components/CreateExercise";
